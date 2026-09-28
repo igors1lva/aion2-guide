@@ -191,12 +191,12 @@ def init_db():
     ''')
     conn.commit()
 
-    # Vídeo do Cleric - Guia completo de Skills, Stigmas e Combos por Carneiro MMO
+    # Vídeo do Cleric - Guia atualizado com foco em PvE por Carneiro MMO
     cursor.execute('''
         UPDATE classes 
-        SET video_url = 'https://www.youtube.com/watch?v=JLYdIsd32SA',
-            video_embed_url = 'https://www.youtube.com/embed/JLYdIsd32SA',
-            video_title = 'AION 2 - CLERIC: GUIA COMPLETO! Skills, Stigmas e Combos',
+        SET video_url = 'https://www.youtube.com/watch?v=myXDL-iWwxQ',
+            video_embed_url = 'https://www.youtube.com/embed/myXDL-iWwxQ',
+            video_title = 'AION 2: NÃO FAÇA O CLERIC SEM VER ISSO! Build PVE, Stigmas e Macro',
             video_credits = 'Carneiro MMO',
             video_author_url = 'https://www.youtube.com/@CarneiroMMO'
         WHERE slug = 'cleric'
