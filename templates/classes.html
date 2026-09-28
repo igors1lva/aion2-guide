@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block title %}Classes de Aion 2 | Diretório Completo das 8 Classes{% endblock %}
+
+{% block content %}
+<!-- Header da Página -->
+<div class="py-12 bg-gradient-to-b from-dark-900 via-dark-950 to-dark-950 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-xs font-semibold text-cyan-300 mb-4">
+                <i class="fa-solid fa-users"></i> Arquétipos de Atreia
+            </div>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-fantasy font-black text-white tracking-tight">
+                Diretório de Classes de <span class="text-cyan-400">Aion 2</span>
+            </h1>
+            <p class="text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
+                Explore as 8 classes oficiais disponíveis no lançamento global. 
+                Cada classe possui identidade única, armas dedicadas, árvore de <span class="game-term">Daevanion</span> própria e até 6 habilidades customizáveis via <span class="game-term">Stigmas</span> para alternar entre PvE e PvP.
+            </p>
+        </div>
+
+        <!-- Barra de Filtros Interativos -->
+        <div class="mt-8 flex flex-wrap gap-2 pt-4 border-t border-slate-800/80">
+            <button class="class-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-sky-500 text-white shadow-lg shadow-sky-500/30" data-filter="all">
+                Todas as 8 Classes
+            </button>
+            <button class="class-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700" data-filter="Tank">
+                <i class="fa-solid fa-shield text-sky-400 mr-1"></i> Tanks
+            </button>
+            <button class="class-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700" data-filter="Melee DPS">
+                <i class="fa-solid fa-burst text-rose-400 mr-1"></i> Melee DPS
+            </button>
+            <button class="class-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700" data-filter="Ranged">
+                <i class="fa-solid fa-bullseye text-emerald-400 mr-1"></i> Ranged DPS (Físico & Mágico)
+            </button>
+            <button class="class-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700" data-filter="Healer">
+                <i class="fa-solid fa-heart-pulse text-amber-400 mr-1"></i> Healers & Support
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Listagem das Classes -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="classes-grid">
+        {% for c in classes %}
+        <div class="class-item-card glass-panel rounded-3xl p-6 border border-slate-800/80 glass-panel-hover flex flex-col justify-between relative overflow-hidden group" data-category="{{ c.role }} {{ c.role_category }}">
+            
+            <!-- Barra de Destaque Superior com Gradiente da Classe -->
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r {{ c.badge_color }}"></div>
+
+            <div>
+                <!-- Badge de Papel e Estrelas -->
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-dark-950/80 text-cyan-300 border border-slate-700">
+                        {{ c.role }}
+                    </span>
+                    <div class="text-amber-400 text-xs tracking-tighter" title="Dificuldade: {{ c.difficulty }} de 5">
+                        {% for i in range(c.difficulty) %}★{% endfor %}
+                        <span class="text-slate-600">{% for i in range(5 - c.difficulty) %}★{% endfor %}</span>
+                    </div>
+                </div>
+
+                <!-- Título e Subtítulo -->
+                <h3 class="text-2xl font-bold font-fantasy text-white group-hover:text-cyan-300 transition-colors">
+                    {{ c.name }}
+                </h3>
+                <span class="text-xs text-slate-400 block -mt-0.5 mb-3">{{ c.role_category }}</span>
+
+                <!-- Resumo -->
+                <p class="text-xs text-slate-300 leading-relaxed mb-4 line-clamp-3">
+                    {{ c.summary }}
+                </p>
+
+                <!-- Especificações Técnicas -->
+                <div class="space-y-2 py-3 border-y border-slate-800/80 text-xs">
+                    <div class="flex items-start gap-2">
+                        <span class="text-slate-500 w-16 flex-shrink-0">Arma:</span>
+                        <strong class="text-slate-200">{{ c.primary_weapon }}</strong>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-slate-500 w-16 flex-shrink-0">Armadura:</span>
+                        <span class="text-slate-300">{{ c.armor_type }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botão de Navegação para a Rota Dinâmica -->
+            <div class="mt-6 pt-2">
+                <a href="{{ url_for('class_detail', slug=c.slug) }}" class="w-full py-2.5 px-4 rounded-xl bg-slate-800/90 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-sky-500 hover:text-slate-950 text-cyan-300 text-xs font-bold transition-all text-center block shadow-lg">
+                    Ver Guia, Builds & Stigmas &rarr;
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Mensagem de Nenhum Resultado no Filtro -->
+    <div id="no-class-results" class="hidden text-center py-16">
+        <i class="fa-solid fa-ghost text-4xl text-slate-600 mb-3"></i>
+        <p class="text-slate-400 text-sm">Nenhuma classe encontrada para este filtro.</p>
+    </div>
+</div>
+{% endblock %}

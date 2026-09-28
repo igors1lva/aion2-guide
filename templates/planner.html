@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+
+{% block title %}Planejador de Builds: Daevanion & Stigmas | Aion 2 Guides{% endblock %}
+
+{% block content %}
+<!-- Header do Planejador -->
+<div class="py-10 bg-gradient-to-b from-dark-900 via-dark-950 to-dark-950 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-xs font-semibold text-cyan-300 mb-3">
+                    <i class="fa-solid fa-calculator"></i> Ferramenta Interativa de Builds
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-fantasy font-black text-white tracking-tight">
+                    Planejador de Builds de <span class="text-cyan-400">Aion 2</span>
+                </h1>
+                <p class="text-slate-300 text-xs sm:text-sm mt-1 max-w-2xl leading-relaxed">
+                    Personalize sua constelação de <span class="game-term">Daevanion</span>, selecione seus 6 slots de <span class="game-term">Stigmas</span> e visualize o somatório total de atributos da sua build para o Level 45.
+                </p>
+            </div>
+
+            <!-- Botões de Ação Global da Build -->
+            <div class="flex flex-wrap items-center gap-2">
+                <button id="planner-btn-preset-pve" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-500/40 transition-all flex items-center gap-1.5">
+                    <i class="fa-solid fa-dungeon text-amber-400"></i> Preset PvE
+                </button>
+                <button id="planner-btn-preset-pvp" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-rose-500/15 hover:bg-rose-500/25 text-rose-300 border border-rose-500/40 transition-all flex items-center gap-1.5">
+                    <i class="fa-solid fa-swords text-rose-400"></i> Preset PvP
+                </button>
+                <button id="planner-btn-reset" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-all flex items-center gap-1.5">
+                    <i class="fa-solid fa-rotate-left"></i> Resetar
+                </button>
+                <button id="planner-btn-share" class="px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-slate-950 shadow-lg shadow-cyan-500/20 transition-all flex items-center gap-1.5">
+                    <i class="fa-solid fa-share-nodes"></i> Compartilhar
+                </button>
+            </div>
+        </div>
+
+        <!-- Seletor Rápido de Classes (8 Classes) -->
+        <div class="mt-8 pt-6 border-t border-slate-800/80">
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-3">Selecione uma Classe para Planejar:</span>
+            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2" id="planner-class-selector">
+                {% for c in classes %}
+                <button class="planner-class-btn p-2.5 rounded-xl border text-center transition-all flex flex-col items-center justify-center gap-1 {% if loop.first %}bg-cyan-500/20 border-cyan-400 text-cyan-300 shadow-lg shadow-cyan-500/20 active{% else %}bg-dark-950/70 border-slate-800 text-slate-300 hover:border-slate-700 hover:text-white{% endif %}" data-slug="{{ c.slug }}">
+                    <span class="text-xs font-bold font-fantasy block">{{ c.name }}</span>
+                    <span class="text-[9px] text-slate-400 truncate max-w-full">{{ c.role.split('/')[0].strip() }}</span>
+                </button>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Painel de Métricas e Status -->
+<div class="bg-dark-900 border-b border-slate-800/80 py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4 text-xs">
+        <div class="flex items-center gap-3">
+            <span class="text-slate-400">Classe Ativa:</span>
+            <span id="active-class-title" class="font-fantasy font-bold text-white text-sm">Gladiator</span>
+            <span id="active-class-role" class="px-2 py-0.5 rounded bg-slate-800 text-cyan-300 text-[10px] border border-slate-700">Tank / Melee DPS</span>
+        </div>
+
+        <div class="flex items-center gap-6">
+            <div class="flex items-center gap-2">
+                <span class="text-slate-400">Pontos de Daevanion:</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 font-bold font-mono">
+                    <span id="stat-points-spent">0</span> / 50 gastos (<span id="stat-points-remaining">50</span> livres)
+                </span>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <span class="text-slate-400">Slots de Stigmas:</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 font-bold font-mono">
+                    <span id="stat-stigmas-equipped">0</span> / 6 equipados
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Corpo Principal do Planejador -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+
+    <!-- Grid de 2 Colunas: Daevanion Board e Stigmas Loadout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Coluna Esquerda: Daevanion Constellation Tree (7 Colunas) -->
+        <div class="lg:col-span-7 glass-panel p-6 sm:p-8 rounded-3xl border border-slate-800 space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                <div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-amber-400">Constelação Estelar</span>
+                    <h3 class="text-xl font-bold font-fantasy text-white">Daevanion Board</h3>
+                </div>
+                <div class="text-[11px] text-slate-400 flex items-center gap-2">
+                    <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-slate-200"></span> Branco</span>
+                    <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span> Verde</span>
+                    <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span> Azul</span>
+                    <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span> Laranja</span>
+                </div>
+            </div>
+
+            <p class="text-xs text-slate-400 leading-relaxed">
+                Clique nos nós para alocar ou desmarcar pontos. Nós de tiers superiores são destravados conforme você investe pontos na constelação.
+            </p>
+
+            <!-- Tiers de Nós Interativos da Daevanion Board -->
+            <div class="space-y-6" id="daevanion-tree-container">
+                <!-- Injetado dinamicamente via planner.js -->
+            </div>
+        </div>
+
+        <!-- Coluna Direita: Stigmas Loadout e Resumo de Atributos (5 Colunas) -->
+        <div class="lg:col-span-5 space-y-6">
+            
+            <!-- Box: 6 Slots de Stigmas Equipadas -->
+            <div class="glass-panel p-6 rounded-3xl border border-purple-500/30 space-y-4">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-purple-400">Loadout de Combate</span>
+                        <h4 class="text-lg font-bold font-fantasy text-white">6 Slots de Stigmas</h4>
+                    </div>
+                    <span class="text-xs text-slate-400 font-mono" id="stigmas-slot-indicator">0/6 Slots</span>
+                </div>
+
+                <!-- Os 6 Slots Visuais -->
+                <div class="grid grid-cols-3 gap-2.5" id="equipped-stigmas-grid">
+                    {% for i in range(1, 7) %}
+                    <div class="equipped-slot p-2 rounded-xl border border-dashed border-slate-700 bg-dark-950/60 min-h-[64px] flex flex-col items-center justify-center text-center text-[10px] text-slate-500" data-slot-index="{{ i - 1 }}">
+                        <i class="fa-solid fa-plus text-xs mb-1 opacity-50"></i>
+                        <span>Slot 0{{ i }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Catálogo de Stigmas da Classe para Escolha -->
+                <div class="pt-3 border-t border-slate-800">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-2">Habilidades Disponíveis (Clique para equipar):</span>
+                    <div class="space-y-2 max-h-60 overflow-y-auto pr-1" id="available-stigmas-list">
+                        <!-- Preenchido dinamicamente -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Box: Resumo de Atributos Totais Acumulados -->
+            <div class="glass-panel p-6 rounded-3xl border border-cyan-500/30 space-y-4">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-cyan-400">Estatísticas Finais</span>
+                        <h4 class="text-lg font-bold font-fantasy text-white">Atributos da Build</h4>
+                    </div>
+                    <span class="text-xs text-slate-400 font-mono">Level 45 Ready</span>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2.5 text-xs" id="build-stats-summary">
+                    <div class="p-2.5 rounded-xl bg-dark-950/80 border border-slate-800 flex justify-between items-center">
+                        <span class="text-slate-400">Attack / Boost:</span>
+                        <strong class="text-cyan-300 font-mono" id="stat-sum-attack">+0</strong>
+                    </div>
+                    <div class="p-2.5 rounded-xl bg-dark-950/80 border border-slate-800 flex justify-between items-center">
+                        <span class="text-slate-400">Max HP:</span>
+                        <strong class="text-emerald-300 font-mono" id="stat-sum-hp">+0</strong>
+                    </div>
+                    <div class="p-2.5 rounded-xl bg-dark-950/80 border border-slate-800 flex justify-between items-center">
+                        <span class="text-slate-400">Critical Hit:</span>
+                        <strong class="text-amber-300 font-mono" id="stat-sum-crit">+0</strong>
+                    </div>
+                    <div class="p-2.5 rounded-xl bg-dark-950/80 border border-slate-800 flex justify-between items-center">
+                        <span class="text-slate-400">Defense:</span>
+                        <strong class="text-sky-300 font-mono" id="stat-sum-defense">+0</strong>
+                    </div>
+                </div>
+
+                <div class="p-3 rounded-xl bg-dark-950 border border-slate-800/80 space-y-1">
+                    <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Bônus Especiais Desbloqueados:</span>
+                    <ul class="text-[11px] text-slate-300 space-y-1" id="build-perks-list">
+                        <li class="text-slate-500 italic">Nenhum nó passivo ou mítico alocado ainda.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Banner de Notificação de Cópia / Compartilhamento -->
+    <div id="share-toast" class="hidden fixed bottom-6 right-6 z-50 p-4 rounded-2xl bg-slate-900 border border-cyan-400 text-white shadow-2xl text-xs flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-cyan-400 text-lg"></i>
+        <div>
+            <strong class="block text-white">Link da Build Copiado!</strong>
+            <span class="text-slate-400">Você já pode enviar para seus amigos ou guilda.</span>
+        </div>
+    </div>
+
+    <!-- Crédito Obrigatório Conforme a Imagem Solicitada -->
+    <div class="text-xs text-slate-400 mt-8 pt-4 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div>
+            Baseado no <a href="https://daevanion-planner.info/" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 underline font-semibold">Daevanion Planner</a>. Dados comunitários.
+        </div>
+        <div class="text-[11px] text-slate-400">
+            Aion 2 Build Planner v1.0 · Totalmente integrado em Português do Brasil com termos em Inglês
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/planner.js') }}"></script>
+{% endblock %}

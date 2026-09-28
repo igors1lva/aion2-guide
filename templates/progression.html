@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+
+{% block title %}Sistemas de Progressão: Stigmas & Daevanion Boards | Aion 2 Guides{% endblock %}
+
+{% block content %}
+<!-- Header da Página -->
+<div class="py-12 bg-gradient-to-b from-dark-900 via-dark-950 to-dark-950 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-xs font-semibold text-purple-300 mb-4">
+                <i class="fa-solid fa-diagram-project"></i> Arquitetura de Poder de Atreia
+            </div>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-fantasy font-black text-white tracking-tight">
+                Sistemas: <span class="text-purple-400">Stigmas</span> & <span class="text-amber-400">Daevanion</span>
+            </h1>
+            <p class="text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
+                Descubra como moldar a identidade do seu Daeva. Em Aion 2, o kit de habilidades vai além da progressão linear básica através dos 6 slots de <span class="game-term">Stigmas</span> equipáveis e das constelações de nós em <span class="game-term">Daevanion Boards</span> alimentados por <span class="game-term">Monoliths</span>.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+
+    <!-- 1. SEÇÃO: SKILLS & STIGMAS -->
+    <section id="stigmas-system" class="glass-panel rounded-3xl p-6 sm:p-10 border border-purple-500/30 relative overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2 space-y-4">
+                <div class="flex items-center gap-2 text-purple-400 font-bold text-xs uppercase tracking-widest">
+                    <i class="fa-solid fa-gem"></i> Customização de Habilidades
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-fantasy font-bold text-white">
+                    O Sistema de Stigmas: Até 6 Slots Equipáveis
+                </h2>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    As pedras de <span class="game-term">Stigmas</span> contêm fragmentos da memória dos Senhores Empíreos de Atreia. Elas conferem feitiços e golpes que não existem na árvore comum de habilidades da sua classe.
+                </p>
+
+                <div class="p-4 rounded-2xl bg-dark-950/80 border border-slate-800 space-y-3 text-xs text-slate-300">
+                    <div class="flex items-start gap-2">
+                        <i class="fa-solid fa-circle-check text-purple-400 mt-0.5"></i>
+                        <div>
+                            <strong class="text-white">Limite Rígido de 6 Slots:</strong> No Level 45, cada jogador atinge o teto de 6 Stigmas ativas simultâneas. Essa limitação cria escolhas estratégicas cruciais: você deve priorizar controle de grupo, dano sustentado ou sobrevivência?
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i class="fa-solid fa-circle-check text-cyan-400 mt-0.5"></i>
+                        <div>
+                            <strong class="text-white">Transformação de Gameplay:</strong> Habilidades icônicas como o teletransporte <span class="game-term">Shadowstep</span> do Assassin ou as auras de <span class="game-term">Mantras</span> do Chanter mudam radicalmente o ritmo do combate, permitindo surpreender oponentes em embates de <span class="game-term">Strongholds</span>.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-2">
+                    <a href="{{ url_for('classes_list') }}" class="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs shadow-lg shadow-purple-600/25 inline-flex items-center gap-2 transition-all">
+                        <i class="fa-solid fa-shield-halved"></i> Ver Stigmas Recomendadas por Classe
+                    </a>
+                </div>
+            </div>
+
+            <!-- Representação Visual dos 6 Slots de Stigmas -->
+            <div class="bg-dark-950/90 p-6 rounded-2xl border border-purple-500/30 text-center space-y-4">
+                <div class="text-xs font-bold uppercase tracking-wider text-purple-300 font-fantasy">
+                    6 Slots de Stigmas (Level 45)
+                </div>
+                <div class="grid grid-cols-3 gap-3 max-w-[240px] mx-auto">
+                    {% for i in range(1, 7) %}
+                    <div class="w-16 h-16 rounded-xl border border-purple-500/40 bg-purple-500/10 flex flex-col items-center justify-center text-purple-300 hover:border-cyan-400 hover:text-cyan-300 transition-all cursor-pointer group shadow-lg">
+                        <i class="fa-solid fa-sun text-sm group-hover:scale-125 transition-transform"></i>
+                        <span class="text-[9px] font-bold mt-1">Slot 0{{ i }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="text-[11px] text-slate-400 border-t border-slate-800 pt-3">
+                    Desbloqueados gradualmente nos níveis: <strong class="text-slate-200">10, 20, 30, 35, 40 e 45</strong>.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. SEÇÃO: DAEVANION BOARDS (NÓS BRANCO, VERDE, AZUL E LARANJA) -->
+    <section id="daevanion-boards" class="space-y-8">
+        <div class="text-center max-w-2xl mx-auto">
+            <span class="text-xs font-bold uppercase tracking-widest text-amber-400">Constelações de Poder</span>
+            <h2 class="text-2xl sm:text-3xl font-fantasy font-bold text-white mt-1">
+                Daevanion Boards: Os 4 Tipos de Nodes
+            </h2>
+            <p class="text-slate-400 text-sm mt-2">
+                A progressão de <span class="game-term">Daevanion</span> funciona como um mapa estelar de constelações. Cada ponto investido ativa nós com propósitos distintos. Clique em cada nó para inspecionar seus benefícios:
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            
+            <!-- Simulador / Seletor de Nós Interativo -->
+            <div class="glass-panel p-6 rounded-3xl border border-slate-800 space-y-4">
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Clique em um Nó para Explorar:</span>
+                
+                <div class="space-y-3">
+                    <!-- Nó Branco -->
+                    <button class="daevanion-node-btn w-full p-3.5 rounded-xl bg-slate-900 border border-slate-200/40 hover:border-white flex items-center justify-between text-left transition-all ring-2 ring-white" data-node-type="white">
+                        <div class="flex items-center gap-3">
+                            <span class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-slate-900 text-xs font-bold shadow-md shadow-white/30">W</span>
+                            <div>
+                                <strong class="text-xs text-white block">Nó Branco (White Node)</strong>
+                                <span class="text-[10px] text-slate-400">Status Básicos Primários</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
+                    </button>
+
+                    <!-- Nó Verde -->
+                    <button class="daevanion-node-btn w-full p-3.5 rounded-xl bg-slate-900 border border-emerald-500/40 hover:border-emerald-400 flex items-center justify-between text-left transition-all" data-node-type="green">
+                        <div class="flex items-center gap-3">
+                            <span class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center text-slate-950 text-xs font-bold shadow-md shadow-emerald-500/30">G</span>
+                            <div>
+                                <strong class="text-xs text-emerald-400 block">Nó Verde (Green Node)</strong>
+                                <span class="text-[10px] text-slate-400">Skills Passivas & Utilitários</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
+                    </button>
+
+                    <!-- Nó Azul -->
+                    <button class="daevanion-node-btn w-full p-3.5 rounded-xl bg-slate-900 border border-sky-500/40 hover:border-sky-400 flex items-center justify-between text-left transition-all" data-node-type="blue">
+                        <div class="flex items-center gap-3">
+                            <span class="w-6 h-6 rounded-full bg-sky-500 flex items-center justify-center text-slate-950 text-xs font-bold shadow-md shadow-sky-500/30">B</span>
+                            <div>
+                                <strong class="text-xs text-sky-400 block">Nó Azul (Blue Node)</strong>
+                                <span class="text-[10px] text-slate-400">Skills Ativas & Variações</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
+                    </button>
+
+                    <!-- Nó Laranja -->
+                    <button class="daevanion-node-btn w-full p-3.5 rounded-xl bg-slate-900 border border-amber-500/40 hover:border-amber-400 flex items-center justify-between text-left transition-all" data-node-type="orange">
+                        <div class="flex items-center gap-3">
+                            <span class="w-6 h-6 rounded-full bg-amber-400 flex items-center justify-center text-slate-950 text-xs font-bold shadow-md shadow-amber-400/30">O</span>
+                            <div>
+                                <strong class="text-xs text-amber-400 block">Nó Laranja (Orange Node)</strong>
+                                <span class="text-[10px] text-slate-400">Bônus Únicos Lendários</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Painel Informativo Dinâmico do Nó Selecionado -->
+            <div class="lg:col-span-2 glass-panel p-6 sm:p-8 rounded-3xl border border-slate-700 min-h-[320px] flex items-center" id="daevanion-node-info">
+                <div class="animate-fadeIn w-full">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 text-xs rounded-full uppercase tracking-wider bg-slate-200 text-slate-900 font-bold">Status Bruto</span>
+                        <span class="text-xs text-slate-400">Daevanion Node</span>
+                    </div>
+                    <h4 class="text-xl font-bold font-fantasy text-white mb-1">Nós Brancos (White Nodes)</h4>
+                    <p class="text-xs text-sky-400 mb-3">Atributos Básicos Primários</p>
+                    <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+                        Conferem incrementos diretos às estatísticas fundamentais de combate do seu personagem. Essenciais para garantir sobrevivência e poder contínuo de ataque.
+                    </p>
+                    <div class="border-t border-slate-700/60 pt-3">
+                        <span class="text-xs uppercase font-semibold text-slate-400 tracking-wider block mb-2">Exemplos de Atributos:</span>
+                        <ul class="space-y-1.5 text-xs text-slate-300">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-sparkles text-amber-400"></i> +45 Physical Attack / Magic Boost</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-sparkles text-amber-400"></i> +350 Max HP</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-sparkles text-amber-400"></i> +25 Physical / Magical Defense</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-sparkles text-amber-400"></i> +15 Physical Critical Hit</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. MONOLITHS DE ATREIA -->
+    <section class="glass-panel rounded-3xl p-6 sm:p-10 border border-slate-800">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div class="space-y-4">
+                <div class="flex items-center gap-2 text-cyan-400 font-bold text-xs uppercase tracking-widest">
+                    <i class="fa-solid fa-monument"></i> Exploração & Pontos de Daevanion
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-fantasy font-bold text-white">
+                    Monoliths: A Fonte Ancestral de Poder
+                </h3>
+                <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                    Espalhados pelos cantos mais perigosos de <span class="game-term">Atreia</span>, os <span class="game-term">Monoliths</span> são monumentos monolíticos misteriosos remanescentes do cataclismo da Torre da Eternidade.
+                </p>
+                <div class="space-y-2 text-xs text-slate-300">
+                    <div class="flex items-start gap-2">
+                        <i class="fa-solid fa-compass text-amber-400 mt-1"></i>
+                        <span>Ao localizar e sincronizar com um Monolith, você ganha <strong>pontos extras de Daevanion</strong> para investir na sua constelação sem depender apenas do ganho de nível.</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i class="fa-solid fa-shield text-cyan-400 mt-1"></i>
+                        <span>Muitos Monoliths estão localizados em zonas disputadas e exigem o uso inteligente do voo livre e desfiladeiros verticais para serem acessados.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-dark-950/80 p-6 rounded-2xl border border-cyan-500/20 text-center space-y-3">
+                <i class="fa-solid fa-monument text-5xl text-cyan-400 mb-2"></i>
+                <div class="text-base font-bold text-white font-fantasy">Dica para Exploradores</div>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Sempre que a sua bússola indicar uma ressonância de Éter próxima, interrompa o leveling e explore o topo de montanhas com suas asas. Sincronizar todos os Monoliths de cada mapa garante acesso antecipado aos <strong>Nós Laranja</strong> da sua classe!
+                </p>
+            </div>
+        </div>
+    </section>
+
+</div>
+{% endblock %}

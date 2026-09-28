@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Aion 2 Guides | Portal Global de Guias e Builds{% endblock %}</title>
+    <meta name="description" content="Guia completo em Português do Brasil com nomenclaturas oficiais em Inglês para o lançamento global de Aion 2. Level cap 45, builds de classes, Stigmas, Daevanion e Gearing.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            950: '#07090e',
+                            900: '#0b0f19',
+                            850: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155'
+                        },
+                        aionCyan: {
+                            400: '#38bdf8',
+                            500: '#00f0ff',
+                            600: '#0284c7'
+                        },
+                        aionGold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706'
+                        }
+                    },
+                    fontFamily: {
+                        fantasy: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+</head>
+<body class="bg-dark-950 text-slate-200 flex flex-col min-h-screen selection:bg-cyan-500 selection:text-black">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-cyan-950/90 via-slate-900 to-amber-950/90 border-b border-slate-800/80 py-1.5 px-4 text-xs text-center flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-slate-300">
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 whitespace-nowrap">
+            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping mr-1"></span> GLOBAL LAUNCH
+        </span>
+        <span class="whitespace-nowrap">Lançamento Oficial: <strong class="text-white">05 de Outubro de 2026 às 11:00 BRT</strong> (14:00 UTC)</span>
+        <span class="text-slate-500 hidden md:inline">·</span>
+        <span class="whitespace-nowrap">Acesso Antecipado: <strong class="text-amber-300">30 de Setembro de 2026</strong></span>
+        <span class="text-slate-500 hidden md:inline">·</span>
+        <span class="whitespace-nowrap">Level Cap Inicial: <strong class="text-cyan-400">Level 45</strong></span>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-slate-800/70 backdrop-blur-md">
+        <div class="max-w-[1600px] w-full mx-auto px-3 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 gap-2">
+                
+                <!-- Logo & Brand -->
+                <div class="flex items-center gap-3 shrink-0">
+                    <a href="{{ url_for('index') }}" class="flex items-center gap-2.5 group">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 via-sky-600 to-indigo-800 p-0.5 shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-400/40 transition-all shrink-0">
+                            <div class="w-full h-full bg-dark-950 rounded-[10px] flex items-center justify-center">
+                                <i class="fa-solid fa-feather-pointed text-cyan-400 text-lg group-hover:scale-110 transition-transform"></i>
+                            </div>
+                        </div>
+                        <div class="shrink-0">
+                            <span class="font-fantasy text-lg sm:text-xl font-bold tracking-wider text-white flex items-center gap-1.5 whitespace-nowrap">
+                                AION <span class="text-cyan-400">2</span> <span class="text-[10px] sm:text-xs px-1.5 py-0.5 bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded font-sans font-bold">GUIDES</span>
+                            </span>
+                            <span class="text-[9px] sm:text-[10px] text-slate-400 tracking-wider block -mt-0.5 uppercase whitespace-nowrap">Portal Brasileiro de Atreia</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation Links (Linhas Únicas / whitespace-nowrap) -->
+                <nav class="hidden lg:flex items-center gap-1 xl:gap-2 flex-nowrap">
+                    <a href="{{ url_for('index') }}" class="px-2.5 xl:px-3 py-2 rounded-lg text-xs xl:text-sm font-medium transition-colors inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 {% if request.path == '/' %}text-cyan-400 bg-cyan-500/10 border border-cyan-500/20{% else %}text-slate-300 hover:text-white hover:bg-slate-800/60{% endif %}">
+                        <i class="fa-solid fa-house text-xs text-slate-400"></i> Início
+                    </a>
+                    
+                    <a href="{{ url_for('beginner_guide') }}" class="px-2.5 xl:px-3 py-2 rounded-lg text-xs xl:text-sm font-medium transition-colors inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 {% if request.path == '/beginner-guide' %}text-cyan-400 bg-cyan-500/10 border border-cyan-500/20{% else %}text-slate-300 hover:text-white hover:bg-slate-800/60{% endif %}">
+                        <i class="fa-solid fa-compass text-xs text-amber-400"></i> Guia do Iniciante
+                    </a>
+                    
+                    <!-- Classes Dropdown -->
+                    <div class="relative group shrink-0">
+                        <a href="{{ url_for('classes_list') }}" class="px-2.5 xl:px-3 py-2 rounded-lg text-xs xl:text-sm font-medium transition-colors inline-flex items-center gap-1.5 whitespace-nowrap {% if '/classes' in request.path %}text-cyan-400 bg-cyan-500/10 border border-cyan-500/20{% else %}text-slate-300 hover:text-white hover:bg-slate-800/60{% endif %}">
+                            <i class="fa-solid fa-shield-halved text-xs text-sky-400"></i> Classes
+                            <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+                        </a>
+
+                        <!-- Submenu Dropdown -->
+                        <div class="absolute left-0 mt-2 w-64 rounded-xl glass-panel border border-slate-700/80 shadow-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <div class="px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-slate-400 border-b border-slate-800">
+                                As 8 Classes Iniciais
+                            </div>
+                            <div class="grid grid-cols-1 gap-1 pt-1">
+                                {% for c in nav_classes %}
+                                <a href="{{ url_for('class_detail', slug=c.slug) }}" class="flex items-center justify-between px-3 py-2 rounded-lg text-xs hover:bg-slate-800 text-slate-300 hover:text-cyan-300 transition-colors whitespace-nowrap">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fa-solid fa-khanda text-xs text-cyan-400"></i>
+                                        <span class="font-bold">{{ c.name }}</span>
+                                    </div>
+                                    <span class="text-[10px] text-slate-400">{{ c.role }}</span>
+                                </a>
+                                {% endfor %}
+                            </div>
+                            <div class="mt-2 pt-2 border-t border-slate-800 text-center">
+                                <a href="{{ url_for('classes_list') }}" class="text-xs text-cyan-400 hover:underline font-semibold block whitespace-nowrap">Ver Visão Geral de Classes &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="{{ url_for('progression') }}" class="px-2.5 xl:px-3 py-2 rounded-lg text-xs xl:text-sm font-medium transition-colors inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 {% if request.path == '/progression' %}text-cyan-400 bg-cyan-500/10 border border-cyan-500/20{% else %}text-slate-300 hover:text-white hover:bg-slate-800/60{% endif %}">
+                        <i class="fa-solid fa-diagram-project text-xs text-purple-400"></i> Sistemas & Stigmas
+                    </a>
+
+                    <a href="{{ url_for('gearing') }}" class="px-2.5 xl:px-3 py-2 rounded-lg text-xs xl:text-sm font-medium transition-colors inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 {% if request.path == '/gearing' %}text-cyan-400 bg-cyan-500/10 border border-cyan-500/20{% else %}text-slate-300 hover:text-white hover:bg-slate-800/60{% endif %}">
+                        <i class="fa-solid fa-hammer text-xs text-yellow-400"></i> Equipamentos & Enhancement
+                    </a>
+
+                    <!-- Ferramentas Dropdown com Visual Destacado em Azul -->
+                    <div class="relative group shrink-0">
+                        <a href="{{ url_for('tools') }}" class="px-3 xl:px-4 py-2 text-xs xl:text-sm font-bold rounded-lg bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-slate-950 shadow-lg shadow-cyan-500/25 transition-all transform hover:-translate-y-0.5 inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 group" title="Central de Ferramentas e Utilitários de Aion 2">
+                            <i class="fa-solid fa-screwdriver-wrench text-xs text-slate-950"></i>
+                            <span>Ferramentas</span>
+                            <i class="fa-solid fa-chevron-down text-[10px] text-slate-900 group-hover:rotate-180 transition-transform"></i>
+                        </a>
+
+                        <!-- Submenu Dropdown -->
+                        <div class="absolute right-0 mt-2 w-72 rounded-xl glass-panel border border-slate-700/80 shadow-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <div class="px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-slate-400 border-b border-slate-800">
+                                Utilitários do Portal
+                            </div>
+                            <div class="grid grid-cols-1 gap-1 pt-1">
+                                <a href="{{ url_for('planner') }}" class="flex items-center justify-between px-3 py-2 rounded-lg text-xs hover:bg-slate-800 text-slate-300 hover:text-cyan-300 transition-colors whitespace-nowrap">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fa-solid fa-calculator text-xs text-cyan-400"></i>
+                                        <span class="font-bold">Planejador de Builds</span>
+                                    </div>
+                                    <span class="text-[10px] text-slate-400">Daevanion & Stigmas</span>
+                                </a>
+                                <a href="{{ url_for('tracker') }}" class="flex items-center justify-between px-3 py-2 rounded-lg text-xs hover:bg-slate-800 text-slate-300 hover:text-emerald-300 transition-colors whitespace-nowrap">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fa-solid fa-list-check text-xs text-emerald-400"></i>
+                                        <span class="font-bold">Tarefas Diárias/Semanais</span>
+                                    </div>
+                                    <span class="text-[10px] text-slate-400">Tracker & Timers</span>
+                                </a>
+                                <a href="{{ url_for('interactive_map') }}" class="flex items-center justify-between px-3 py-2 rounded-lg text-xs hover:bg-slate-800 text-slate-300 hover:text-sky-300 transition-colors whitespace-nowrap">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fa-solid fa-map-location-dot text-xs text-sky-400"></i>
+                                        <span class="font-bold">Mapa Interativo</span>
+                                    </div>
+                                    <span class="text-[10px] text-slate-400">Atreia 3D</span>
+                                </a>
+                                <a href="{{ url_for('gearing') }}#enhancement-simulator" class="flex items-center justify-between px-3 py-2 rounded-lg text-xs hover:bg-slate-800 text-slate-300 hover:text-amber-300 transition-colors whitespace-nowrap">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fa-solid fa-hammer text-xs text-amber-400"></i>
+                                        <span class="font-bold">Simulador de Enhancement</span>
+                                    </div>
+                                    <span class="text-[10px] text-slate-400">+0 a +15</span>
+                                </a>
+                            </div>
+                            <div class="mt-2 pt-2 border-t border-slate-800 text-center">
+                                <a href="{{ url_for('tools') }}" class="text-xs text-cyan-400 hover:underline font-semibold block whitespace-nowrap">Ver Todas as Ferramentas &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Quick Action Buttons: Steam Oficial -->
+                <div class="hidden lg:flex items-center gap-2 xl:gap-3 shrink-0">
+                    <a href="https://store.steampowered.com/app/3393110/AION_2/" target="_blank" rel="noopener noreferrer" class="px-3 xl:px-4 py-2 text-xs xl:text-sm font-bold rounded-lg bg-[#171d25] hover:bg-[#1b2838] text-white border border-[#2a475e] hover:border-cyan-400 shadow-md transition-all inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 group" title="Abrir página oficial do Aion 2 na Steam">
+                        <i class="fa-brands fa-steam text-cyan-400 text-base group-hover:scale-110 transition-transform"></i>
+                        <span>Página na Steam</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden glass-panel border-b border-slate-800 px-4 pt-2 pb-6 space-y-2">
+            <a href="{{ url_for('index') }}" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-300 hover:bg-slate-800">
+                <i class="fa-solid fa-house mr-2 text-cyan-400"></i> Início
+            </a>
+            <a href="{{ url_for('beginner_guide') }}" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-300 hover:bg-slate-800">
+                <i class="fa-solid fa-compass mr-2 text-amber-400"></i> Guia do Iniciante (Level 45)
+            </a>
+            <a href="{{ url_for('classes_list') }}" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-300 hover:bg-slate-800">
+                <i class="fa-solid fa-shield-halved mr-2 text-sky-400"></i> Todas as 8 Classes
+            </a>
+            <a href="{{ url_for('progression') }}" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-300 hover:bg-slate-800">
+                <i class="fa-solid fa-diagram-project mr-2 text-purple-400"></i> Sistemas & Daevanion
+            </a>
+            <a href="{{ url_for('gearing') }}" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-300 hover:bg-slate-800">
+                <i class="fa-solid fa-hammer mr-2 text-yellow-400"></i> Equipamentos & Enhancement
+            </a>
+            <a href="{{ url_for('tools') }}" class="block px-3 py-2.5 rounded-lg text-sm font-bold bg-gradient-to-r from-cyan-500 to-sky-600 text-slate-950 flex items-center justify-between">
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-screwdriver-wrench"></i> Central de Ferramentas
+                </span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+
+            <div class="pl-6 space-y-1 text-xs">
+                <a href="{{ url_for('planner') }}" class="block py-1 text-slate-400 hover:text-cyan-300">
+                    <i class="fa-solid fa-calculator mr-1.5 text-cyan-400"></i> Planejador de Builds
+                </a>
+                <a href="{{ url_for('tracker') }}" class="block py-1 text-slate-400 hover:text-emerald-300">
+                    <i class="fa-solid fa-list-check mr-1.5 text-emerald-400"></i> Tarefas Diárias & Semanais
+                </a>
+                <a href="{{ url_for('interactive_map') }}" class="block py-1 text-slate-400 hover:text-sky-300">
+                    <i class="fa-solid fa-map-location-dot mr-1.5 text-sky-400"></i> Mapa Interativo
+                </a>
+            </div>
+
+            <!-- Botão Steam no Menu Mobile -->
+            <div class="pt-2 border-t border-slate-800">
+                <a href="https://store.steampowered.com/app/3393110/AION_2/" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-3 rounded-lg bg-[#171d25] hover:bg-[#1b2838] border border-[#2a475e] text-white font-bold text-xs flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-steam text-cyan-400"></i> Acessar Aion 2 na Steam
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Modern Dark Footer -->
+    <footer class="bg-dark-900 border-t border-slate-800/80 mt-20 pt-16 pb-12 text-slate-400 text-sm">
+        <div class="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+                
+                <!-- Coluna 1: Sobre o Projeto -->
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-feather-pointed text-cyan-400 text-2xl"></i>
+                        <span class="font-fantasy text-xl font-bold text-white tracking-wider">AION 2 GUIDES</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+                        O principal portal comunitário brasileiro dedicado ao lançamento global de Aion 2. Estratégias completas de combate, rotações, Stigmas, Daevanion Boards e gestão eficiente de Kina e Enhancement Stones.
+                    </p>
+                </div>
+
+
+                <!-- Coluna 2: Classes de Combate -->
+                <div>
+                    <h4 class="text-white font-fantasy text-sm uppercase tracking-wider mb-4 border-l-2 border-cyan-500 pl-2">Classes Oficiais</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="{{ url_for('class_detail', slug='gladiator') }}" class="hover:text-cyan-400 transition-colors">Gladiator (Tank/DPS)</a></li>
+                        <li><a href="{{ url_for('class_detail', slug='templar') }}" class="hover:text-cyan-400 transition-colors">Templar (Main Tank)</a></li>
+                        <li><a href="{{ url_for('class_detail', slug='assassin') }}" class="hover:text-cyan-400 transition-colors">Assassin (Burst DPS)</a></li>
+                        <li><a href="{{ url_for('class_detail', slug='ranger') }}" class="hover:text-cyan-400 transition-colors">Ranger (Ranged DPS)</a></li>
+                        <li><a href="{{ url_for('class_detail', slug='sorcerer') }}" class="hover:text-cyan-400 transition-colors">Sorcerer (Magic DPS)</a></li>
+                        <li><a href="{{ url_for('class_detail', slug='elementalist') }}" class="hover:text-cyan-400 transition-colors">Elementalist (Summoner)</a></li>
+                        <li><a href="{{ url_for('class_detail', slug='cleric') }}" class="hover:text-cyan-400 transition-colors">Cleric (Main Healer)</a></li>
+                        <li><a href="{{ url_for('class_detail', slug='chanter') }}" class="hover:text-cyan-400 transition-colors">Chanter (Support Buffs)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Guias e Leveling -->
+                <div>
+                    <h4 class="text-white font-fantasy text-sm uppercase tracking-wider mb-4 border-l-2 border-amber-500 pl-2">Guias Principais</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="{{ url_for('beginner_guide') }}" class="hover:text-amber-400 transition-colors">Level Cap 45 & Roadmap</a></li>
+                        <li><a href="{{ url_for('beginner_guide') }}#leveling-priorities" class="hover:text-amber-400 transition-colors">Main Story vs Regional Quests</a></li>
+                        <li><a href="{{ url_for('beginner_guide') }}#dungeons-strongholds" class="hover:text-amber-400 transition-colors">Sealed Dungeons & Strongholds</a></li>
+                        <li><a href="{{ url_for('beginner_guide') }}#free-flight" class="hover:text-amber-400 transition-colors">Voo Livre & Exploração Tridimensional</a></li>
+                        <li><a href="{{ url_for('beginner_guide') }}#taming" class="hover:text-amber-400 transition-colors">Captura de Pets & Montarias</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 4: Equipamentos & Ferramentas -->
+                <div>
+                    <h4 class="text-white font-fantasy text-sm uppercase tracking-wider mb-4 border-l-2 border-purple-500 pl-2">Ferramentas & Sistemas</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="{{ url_for('planner') }}" class="hover:text-cyan-400 transition-colors text-cyan-300 font-semibold"><i class="fa-solid fa-calculator mr-1"></i> Planejador de Builds</a></li>
+                        <li><a href="{{ url_for('tracker') }}" class="hover:text-emerald-400 transition-colors text-emerald-300 font-semibold"><i class="fa-solid fa-list-check mr-1"></i> Tarefas Diárias & Semanais</a></li>
+                        <li><a href="{{ url_for('interactive_map') }}" class="hover:text-sky-400 transition-colors text-sky-300 font-semibold"><i class="fa-solid fa-map-location-dot mr-1"></i> Mapa Interativo</a></li>
+                        <li><a href="{{ url_for('gearing') }}#enhancement-simulator" class="hover:text-amber-400 transition-colors"><i class="fa-solid fa-hammer mr-1"></i> Simulador de Enhancement</a></li>
+                        <li><a href="{{ url_for('progression') }}#stigmas-system" class="hover:text-purple-400 transition-colors">Stigmas (Até 6 Slots)</a></li>
+                        <li><a href="{{ url_for('progression') }}#daevanion-boards" class="hover:text-purple-400 transition-colors">Daevanion Boards & Nodes</a></li>
+                        <li><a href="{{ url_for('tools') }}" class="hover:text-cyan-400 transition-colors"><i class="fa-solid fa-screwdriver-wrench mr-1"></i> Central de Ferramentas</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Rodapé Inferior & Termos -->
+            <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+                <div>
+                    <p>&copy; 2026 Aion 2 Guides Portal. Conteúdo e guias desenvolvidos para a comunidade global de Aion 2.</p>
+                    <p class="text-[11px] text-slate-500 mt-1">Créditos comunitários: <a href="https://daevanion-planner.info/" target="_blank" rel="noopener noreferrer" class="text-amber-400/80 hover:text-amber-300 underline">Daevanion Planner</a> · <a href="https://thiagosoaresferreira.github.io/lotus-tracker/" target="_blank" rel="noopener noreferrer" class="text-amber-400/80 hover:text-amber-300 underline">Lótus Tracker (Thiago Soares Ferreira)</a> · <a href="https://questlog.gg/aion-2/en/map" target="_blank" rel="noopener noreferrer" class="text-amber-400/80 hover:text-amber-300 underline">QuestLog.gg</a>.</p>
+                </div>
+                <div class="flex items-center gap-4 text-[11px]">
+                    <span class="text-slate-400">Aion 2 é marca registrada da NCSoft. Este projeto é um portal de fãs e guias para jogadores.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

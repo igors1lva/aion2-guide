@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block title %}Mapa Interativo de Atreia | Aion 2 Guides{% endblock %}
+
+{% block content %}
+<!-- Header da Ferramenta -->
+<div class="py-8 bg-gradient-to-b from-dark-900 via-dark-950 to-dark-950 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div class="space-y-1.5">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-xs font-semibold text-cyan-300">
+                    <i class="fa-solid fa-map-location-dot"></i> Navegação Cartográfica de Atreia
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-fantasy font-black text-white tracking-tight">
+                    Mapa <span class="text-cyan-400">Interativo</span>
+                </h1>
+                <p class="text-slate-300 text-xs sm:text-sm max-w-2xl leading-relaxed">
+                    Localize <span class="game-term">World Bosses</span>, pontos de teleporte, baús de tesouro, recursos de coleta e rotas de exploração no mapa tridimensional de <span class="game-term">Atreia</span>.
+                </p>
+            </div>
+
+            <!-- Créditos e Ações -->
+            <div class="flex flex-wrap items-center gap-3">
+                <div class="p-2.5 rounded-xl bg-dark-900/90 border border-cyan-500/30 text-left">
+                    <span class="text-[10px] text-cyan-400 uppercase font-mono tracking-wider block font-bold">
+                        <i class="fa-solid fa-circle-check mr-1"></i> Fonte Oficial de Dados
+                    </span>
+                    <span class="text-xs text-slate-300 block">
+                        Mapa e dados cartográficos por <strong class="text-white">QuestLog.gg</strong>.
+                    </span>
+                </div>
+
+                <button onclick="toggleMapFullscreen()" id="btn-fullscreen" class="py-2.5 px-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 text-xs font-semibold transition-all inline-flex items-center gap-2">
+                    <i class="fa-solid fa-expand"></i> <span>Modo Tela Cheia</span>
+                </button>
+
+                <a href="https://questlog.gg/aion-2/en/map" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-slate-950 font-bold text-xs shadow-md shadow-cyan-500/20 transition-all inline-flex items-center gap-2">
+                    <span>Abrir no QuestLog</span> <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Atalhos de Pontos de Interesse (POIs) -->
+        <div class="flex items-center gap-2 overflow-x-auto pt-5 pb-1 text-xs text-slate-300 scrollbar-none">
+            <span class="text-[11px] font-mono uppercase text-slate-400 font-bold shrink-0">Legenda Rápida:</span>
+            <span class="px-2.5 py-1 rounded-lg bg-dark-900/80 border border-slate-800 shrink-0 inline-flex items-center gap-1.5 text-cyan-300">
+                <i class="fa-solid fa-dungeon text-cyan-400"></i> Sealed Dungeons
+            </span>
+            <span class="px-2.5 py-1 rounded-lg bg-dark-900/80 border border-slate-800 shrink-0 inline-flex items-center gap-1.5 text-amber-300">
+                <i class="fa-solid fa-skull text-amber-400"></i> World Bosses
+            </span>
+            <span class="px-2.5 py-1 rounded-lg bg-dark-900/80 border border-slate-800 shrink-0 inline-flex items-center gap-1.5 text-purple-300">
+                <i class="fa-solid fa-door-open text-purple-400"></i> Spacetime Rifts
+            </span>
+            <span class="px-2.5 py-1 rounded-lg bg-dark-900/80 border border-slate-800 shrink-0 inline-flex items-center gap-1.5 text-emerald-300">
+                <i class="fa-solid fa-seedling text-emerald-400"></i> Minérios & Ervas
+            </span>
+            <span class="px-2.5 py-1 rounded-lg bg-dark-900/80 border border-slate-800 shrink-0 inline-flex items-center gap-1.5 text-sky-300">
+                <i class="fa-solid fa-archway text-sky-400"></i> Teleportes & Obelisks
+            </span>
+        </div>
+    </div>
+</div>
+
+<!-- Frame do Mapa Interativo -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6" id="map-container">
+    <div class="glass-panel rounded-3xl border border-slate-800 overflow-hidden shadow-2xl relative" style="height: 78vh; min-height: 600px;">
+        <iframe 
+            id="map-frame"
+            src="https://questlog.gg/aion-2/en/map" 
+            title="Mapa Interativo de Aion 2"
+            class="w-full h-full border-0"
+            allowfullscreen="true"
+            referrerpolicy="strict-origin-when-cross-origin"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-downloads">
+        </iframe>
+    </div>
+</div>
+
+<script>
+    function toggleMapFullscreen() {
+        const mapContainer = document.getElementById('map-container');
+        const btn = document.getElementById('btn-fullscreen');
+        
+        if (!document.fullscreenElement) {
+            if (mapContainer.requestFullscreen) {
+                mapContainer.requestFullscreen();
+            } else if (mapContainer.webkitRequestFullscreen) {
+                mapContainer.webkitRequestFullscreen();
+            } else if (mapContainer.msRequestFullscreen) {
+                mapContainer.msRequestFullscreen();
+            }
+            btn.innerHTML = '<i class="fa-solid fa-compress"></i> <span>Sair da Tela Cheia</span>';
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+            btn.innerHTML = '<i class="fa-solid fa-expand"></i> <span>Modo Tela Cheia</span>';
+        }
+    }
+
+    document.addEventListener('fullscreenchange', () => {
+        const btn = document.getElementById('btn-fullscreen');
+        if (!document.fullscreenElement) {
+            btn.innerHTML = '<i class="fa-solid fa-expand"></i> <span>Modo Tela Cheia</span>';
+        }
+    });
+</script>
+{% endblock %}
