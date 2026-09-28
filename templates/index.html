@@ -180,19 +180,19 @@
 
 <!-- SEÇÃO: EVENTOS ATIVOS IN-GAME -->
 <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
         <div>
-            <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Calendário & Temporada de Atreia
+            <span class="text-xs font-bold uppercase tracking-widest text-slate-400 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-amber-400"></span> Calendário & Temporada de Atreia
             </span>
             <h2 class="text-3xl font-fantasy font-bold text-white mt-1">Eventos Ativos In-Game</h2>
             <p class="text-slate-400 text-sm mt-1">
-                Acompanhe os bônus de EXP ativos, eventos de invasão de facção e campanhas oficiais da versão global de Aion 2.
+                Acompanhe o cronograma de eventos, bônus de servidor e campanhas da versão global de Aion 2.
             </p>
         </div>
         <div class="text-xs text-slate-400 flex items-center gap-2">
             <span class="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-slate-300">
-                <i class="fa-solid fa-arrows-rotate text-cyan-400 mr-1"></i> Atualizado em tempo real
+                <i class="fa-solid fa-clock text-amber-400 mr-1"></i> Status: Pré-Lançamento Global
             </span>
         </div>
     </div>
@@ -200,7 +200,6 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {% for ev in events %}
         <div class="glass-panel p-6 rounded-3xl border border-slate-800/90 glass-panel-hover flex flex-col justify-between relative overflow-hidden group">
-            <!-- Barra superior sutil -->
             <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-cyan-500 to-amber-500"></div>
 
             <div>
@@ -226,7 +225,6 @@
                 </p>
             </div>
 
-            <!-- Bloco de Recompensas -->
             <div class="pt-3 border-t border-slate-800/80 -mx-6 -mb-6 p-5 rounded-b-3xl bg-dark-950/80 border-t border-slate-800 flex items-start gap-2.5 text-xs">
                 <div class="w-7 h-7 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 flex-shrink-0 text-xs">
                     <i class="fa-solid fa-gift"></i>
@@ -238,9 +236,14 @@
             </div>
         </div>
         {% else %}
-        <div class="col-span-3 text-center py-12 glass-panel rounded-2xl border border-slate-800">
-            <i class="fa-solid fa-calendar-xmark text-3xl text-slate-500 mb-2"></i>
-            <p class="text-slate-400 text-sm">Nenhum evento ativo anunciado no momento. Fique atento às novidades da comunidade!</p>
+        <div class="col-span-3 text-center py-12 px-6 glass-panel rounded-3xl border border-slate-800 relative overflow-hidden">
+            <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-2xl mx-auto mb-4">
+                <i class="fa-solid fa-calendar-xmark"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white font-fantasy mb-2">Nenhum Evento Ativo no Momento</h3>
+            <p class="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
+                Como a versão global de Aion 2 ainda não foi lançada oficialmente, não existem eventos ativos em andamento. O calendário, campanhas de inauguração e bônus de EXP serão adicionados assim que os servidores forem oficialmente abertos!
+            </p>
         </div>
         {% endfor %}
     </div>

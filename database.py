@@ -699,39 +699,8 @@ def seed_data(cursor):
         ''', (s["key"], s["title"], s["subtitle"], s["description"], s["details_json"]))
 
 def seed_events(cursor):
-    """Insere os eventos ativos in-game iniciais."""
-    events_data = [
-        {
-            "title": "Festival de Lançamento Global: Bênção de Atreia",
-            "category": "EXP & Leveling Boost",
-            "status": "Ativo Agora",
-            "badge_color": "border-emerald-500/40 text-emerald-300 bg-emerald-500/10",
-            "period": "27 de Setembro a 15 de Outubro",
-            "summary": "Durante o período de abertura dos servidores globais de Aion 2, todos os Daevas recebem +20% de EXP adicional ao completar missões da Main Story e Regional Quests até o Level 45.",
-            "rewards": "+20% EXP em Quests, Poções de Voo e Pacote Inicial de Kina",
-            "is_active": 1
-        },
-        {
-            "title": "Cerco aos Abismos: Guerra em Strongholds",
-            "category": "PvPvE & Facções",
-            "status": "Ativo Agora",
-            "badge_color": "border-rose-500/40 text-rose-300 bg-rose-500/10",
-            "period": "Quintas e Domingos às 21h00 BRT",
-            "summary": "Guerra territorial direta entre Elyos e Asmodians pelo domínio das primeiras fortalezas de mapa. Facções que defenderem ou conquistarem Strongholds recebem bônus territoriais globais.",
-            "rewards": "Medalhas de Honra em dobro, Kina e Buffs de Facção",
-            "is_active": 1
-        },
-        {
-            "title": "Expedição Heroica: Provações em Sealed Dungeons",
-            "category": "Masmorras & Loot",
-            "status": "Ativo Agora",
-            "badge_color": "border-amber-500/40 text-amber-300 bg-amber-500/10",
-            "period": "Temporada 1 de Lançamento",
-            "summary": "Complete as Sealed Dungeons diárias com sua party para receber baús bônus contendo Enhancement Stones e soquetes adicionais de Manastones para o seu arsenal.",
-            "rewards": "Enhancement Stones extras e Baús Raros de Manastones",
-            "is_active": 1
-        }
-    ]
+    """Eventos ativos in-game (vazio durante o período pré-lançamento global)."""
+    events_data = []
 
     for ev in events_data:
         cursor.execute('''
