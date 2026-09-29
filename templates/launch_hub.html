@@ -1,0 +1,582 @@
+{% extends 'base.html' %}
+
+{% block title %}Lançamento Global & Servidores SA | Aion 2 Guides{% endblock %}
+
+{% block content %}
+<!-- HERO DA SEÇÃO DE LANÇAMENTO -->
+<section class="relative overflow-hidden py-12 lg:py-16 border-b border-slate-800/80 bg-gradient-to-b from-dark-900 via-dark-950 to-dark-950">
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center max-w-4xl mx-auto space-y-4">
+            
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/90 border border-slate-700/80 text-xs font-semibold text-slate-300 shadow-xl">
+                <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span class="text-emerald-300 font-bold">Oficial & Datamine Confirmado</span>
+                <span class="text-slate-500">|</span>
+                <span class="text-amber-400 font-bold">Servidores SA em São Paulo</span>
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-fantasy font-black tracking-tight text-white leading-tight">
+                GUIA DE LANÇAMENTO <span class="bg-gradient-to-r from-cyan-400 via-sky-300 to-amber-300 bg-clip-text text-transparent">GLOBAL & SA</span>
+            </h1>
+
+            <p class="text-sm sm:text-base text-slate-300 font-normal leading-relaxed max-w-3xl mx-auto">
+                Tudo o que você precisa saber para a estreia de Aion 2: cronograma de acesso antecipado, sistema de servidores pareados por facção, as revelações do <strong class="text-cyan-300">Datamine do Client Global</strong> (diferenças da versão KR/TW) e o <strong class="text-amber-300">Roadmap Estratégico dos Primeiros Dias</strong> para maximizar Odil Energy e Item Level.
+            </p>
+
+            <!-- Links Rápidos de Navegação Interna -->
+            <div class="flex flex-wrap justify-center gap-2 pt-2">
+                <a href="#cronograma-servidores" class="px-3.5 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-cyan-300 text-xs font-bold border border-slate-700 flex items-center gap-1.5 transition-all">
+                    <i class="fa-solid fa-server text-cyan-400"></i> Servidores & Horários
+                </a>
+                <a href="#datamine-global" class="px-3.5 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-purple-300 text-xs font-bold border border-slate-700 flex items-center gap-1.5 transition-all">
+                    <i class="fa-solid fa-microchip text-purple-400"></i> Datamine vs KR/TW (MetaRoad)
+                </a>
+                <a href="#roadmap-primeiros-dias" class="px-3.5 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-amber-300 text-xs font-bold border border-slate-700 flex items-center gap-1.5 transition-all">
+                    <i class="fa-solid fa-route text-amber-400"></i> Rota dos Primeiros Dias (Madsin)
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SEÇÃO 1: CRONOGRAMA OFICIAL & PAREAMENTO DE SERVIDORES -->
+<section id="cronograma-servidores" class="py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-cyan-400 flex items-center gap-1.5">
+                <i class="fa-solid fa-calendar-check"></i> Anúncio Oficial da Desenvolvedora
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-fantasy font-bold text-white mt-1">Cronograma de Acesso & Servidores</h2>
+            <p class="text-slate-400 text-sm mt-1">
+                Fique atento aos horários de abertura dos servidores e à regra essencial de escolha de facção.
+            </p>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+            <span class="px-3 py-1.5 rounded-xl bg-dark-900 border border-slate-800 text-slate-300">
+                <i class="fa-solid fa-globe text-cyan-400 mr-1.5"></i> Fuso Horário de Brasília (BRT / UTC-3)
+            </span>
+        </div>
+    </div>
+
+    <!-- Cards de Horários do Cronograma -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+        <!-- Card 1: Advanced Access -->
+        <div class="glass-panel p-6 rounded-2xl border border-amber-500/30 relative overflow-hidden group">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 to-yellow-400"></div>
+            <div class="flex items-center justify-between mb-3">
+                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                    Fase 1
+                </span>
+                <i class="fa-solid fa-forward-fast text-amber-400"></i>
+            </div>
+            <h3 class="text-lg font-bold font-fantasy text-white mb-2">Acesso Antecipado</h3>
+            <p class="text-xs text-slate-300 mb-4 leading-relaxed">
+                Abertura exclusiva para jogadores com pacotes de fundador e acesso antecipado.
+            </p>
+            <div class="p-3 bg-dark-950/80 rounded-xl border border-slate-800 space-y-1 text-xs">
+                <div class="flex justify-between items-center text-slate-300">
+                    <span class="text-slate-400 text-[11px]">Início:</span>
+                    <strong class="text-emerald-400">30 de Set (Quarta) às 10:00</strong>
+                </div>
+                <div class="flex justify-between items-center text-slate-300">
+                    <span class="text-slate-400 text-[11px]">Término:</span>
+                    <strong class="text-amber-300">05 de Out (Segunda) às 02:00</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Manutenção de Transição -->
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 relative overflow-hidden group">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-slate-600 to-slate-500"></div>
+            <div class="flex items-center justify-between mb-3">
+                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">
+                    Fase 2
+                </span>
+                <i class="fa-solid fa-wrench text-slate-400"></i>
+            </div>
+            <h3 class="text-lg font-bold font-fantasy text-white mb-2">Janela de Manutenção</h3>
+            <p class="text-xs text-slate-300 mb-4 leading-relaxed">
+                Pausa técnica e preparação da infraestrutura para a abertura geral dos servidores globais.
+            </p>
+            <div class="p-3 bg-dark-950/80 rounded-xl border border-slate-800 space-y-1 text-xs">
+                <div class="flex justify-between items-center text-slate-300">
+                    <span class="text-slate-400 text-[11px]">Duração:</span>
+                    <strong class="text-slate-300">05 de Out (02:00 às 10:00 BRT)</strong>
+                </div>
+                <div class="flex justify-between items-center text-slate-300">
+                    <span class="text-slate-400 text-[11px]">Tempo estimado:</span>
+                    <strong class="text-sky-300">8 Horas de Preparação</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3: Global Launch Oficial -->
+        <div class="glass-panel p-6 rounded-2xl border border-cyan-500/40 relative overflow-hidden group shadow-lg shadow-cyan-950/30">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 to-sky-500"></div>
+            <div class="flex items-center justify-between mb-3">
+                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                    Fase 3 · Grande Estreia
+                </span>
+                <i class="fa-solid fa-rocket text-cyan-400"></i>
+            </div>
+            <h3 class="text-lg font-bold font-fantasy text-white mb-2">Lançamento Global Oficial</h3>
+            <p class="text-xs text-slate-300 mb-4 leading-relaxed">
+                Abertura total para a comunidade global de Aion 2 em todas as plataformas e regiões.
+            </p>
+            <div class="p-3 bg-dark-950/80 rounded-xl border border-slate-800 space-y-1 text-xs">
+                <div class="flex justify-between items-center text-slate-300">
+                    <span class="text-slate-400 text-[11px]">Data Oficial:</span>
+                    <strong class="text-cyan-400">05 de Outubro de 2026</strong>
+                </div>
+                <div class="flex justify-between items-center text-slate-300">
+                    <span class="text-slate-400 text-[11px]">Horário de Abertura:</span>
+                    <strong class="text-emerald-400">10:00 BRT (13:00 UTC)</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- REVISE: REGRA DOS SERVIDORES PAREADOS -->
+    <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-800/90 mb-8 bg-gradient-to-r from-dark-950 via-slate-900/60 to-dark-950">
+        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+            <div class="space-y-2 max-w-3xl">
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/10 text-amber-300 border border-amber-500/20">
+                    <i class="fa-solid fa-triangle-exclamation text-amber-400"></i> Regra Fundamental de Arquitetura de Servidores
+                </div>
+                <h3 class="text-xl sm:text-2xl font-fantasy font-bold text-white">
+                    Cada Servidor Hospeda Apenas UMA Única Facção!
+                </h3>
+                <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                    Em Aion 2, os servidores funcionam no modelo de <strong>Pares de Servidores (Server Pairs)</strong>: 
+                    um servidor é dedicado exclusivamente a <strong>Elyos</strong> e o servidor irmão correspondente é dedicado a <strong>Asmodians</strong>. 
+                    Ambas as facções se encontram em combate aberto nas zonas compartilhadas de PvPvE, como o <strong>Abyss (Abismo)</strong> e masmorras inter-servidores. 
+                    Ao entrar no jogo, escolha sua região, sua facção e selecione o servidor correspondente à sua guilda/amigos!
+                </p>
+            </div>
+            <div class="shrink-0 w-full lg:w-auto">
+                <div class="p-4 rounded-2xl bg-slate-800/60 border border-slate-700/60 text-center">
+                    <div class="text-[11px] uppercase font-bold tracking-wider text-slate-400 mb-1">Localização Física SA</div>
+                    <div class="text-lg font-bold text-emerald-400 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-map-pin"></i> São Paulo, Brasil
+                    </div>
+                    <div class="text-[10px] text-slate-400 mt-1">Baixo Ping e Conexão Local</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TABELA COMPLETA DE SERVIDORES PAREADOS -->
+    <div class="glass-panel rounded-3xl border border-slate-800 overflow-hidden">
+        <div class="px-6 py-4 bg-slate-900/80 border-b border-slate-800 flex items-center justify-between flex-wrap gap-2">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-network-wired text-cyan-400"></i>
+                <h4 class="text-sm font-bold text-white uppercase tracking-wider font-fantasy">Pares de Servidores Oficiais por Região</h4>
+            </div>
+            <span class="text-xs text-slate-400">Elyos / Asmodian</span>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs sm:text-sm">
+                <thead>
+                    <tr class="bg-dark-950/60 border-b border-slate-800 text-slate-400 text-[11px] uppercase tracking-wider">
+                        <th class="py-3.5 px-6">Região</th>
+                        <th class="py-3.5 px-6">Data Center</th>
+                        <th class="py-3.5 px-6 text-amber-300"><i class="fa-solid fa-sun mr-1"></i> Servidor Elyos</th>
+                        <th class="py-3.5 px-6 text-cyan-300"><i class="fa-solid fa-moon mr-1"></i> Servidor Asmodian</th>
+                        <th class="py-3.5 px-6 text-right">Status</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-800/60 text-slate-300">
+                    <!-- Latin America - Destaque Principal -->
+                    <tr class="bg-emerald-950/20 hover:bg-emerald-950/30 transition-colors border-l-4 border-l-emerald-500">
+                        <td class="py-4 px-6 font-bold text-white flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                            América do Sul (Latin America)
+                        </td>
+                        <td class="py-4 px-6 text-emerald-300 font-semibold">São Paulo</td>
+                        <td class="py-4 px-6 font-bold text-amber-400">Siel</td>
+                        <td class="py-4 px-6 font-bold text-cyan-400">Israphel</td>
+                        <td class="py-4 px-6 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Par 1 (Principal)</span></td>
+                    </tr>
+                    <tr class="bg-emerald-950/10 hover:bg-emerald-950/20 transition-colors border-l-4 border-l-emerald-500">
+                        <td class="py-4 px-6 font-bold text-white">América do Sul (Latin America)</td>
+                        <td class="py-4 px-6 text-emerald-300">São Paulo</td>
+                        <td class="py-4 px-6 font-bold text-amber-400">Nezekan</td>
+                        <td class="py-4 px-6 font-bold text-cyan-400">Zikel</td>
+                        <td class="py-4 px-6 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Par 2</span></td>
+                    </tr>
+
+                    <!-- NA East -->
+                    <tr class="hover:bg-slate-800/40 transition-colors">
+                        <td class="py-3.5 px-6 font-semibold text-slate-200">América do Norte - Leste (NA East)</td>
+                        <td class="py-3.5 px-6 text-slate-400">Virgínia</td>
+                        <td class="py-3.5 px-6 text-slate-200">Siel / Nezekan</td>
+                        <td class="py-3.5 px-6 text-slate-200">Israphel / Zikel</td>
+                        <td class="py-3.5 px-6 text-right text-slate-500 text-xs">2 Pares</td>
+                    </tr>
+
+                    <!-- NA West -->
+                    <tr class="hover:bg-slate-800/40 transition-colors">
+                        <td class="py-3.5 px-6 font-semibold text-slate-200">América do Norte - Oeste (NA West)</td>
+                        <td class="py-3.5 px-6 text-slate-400">Phoenix</td>
+                        <td class="py-3.5 px-6 text-slate-200">Siel</td>
+                        <td class="py-3.5 px-6 text-slate-200">Israphel</td>
+                        <td class="py-3.5 px-6 text-right text-slate-500 text-xs">1 Par</td>
+                    </tr>
+
+                    <!-- Europa -->
+                    <tr class="hover:bg-slate-800/40 transition-colors">
+                        <td class="py-3.5 px-6 font-semibold text-slate-200">Europa (Europe)</td>
+                        <td class="py-3.5 px-6 text-slate-400">Frankfurt</td>
+                        <td class="py-3.5 px-6 text-slate-200">Siel / Nezekan / Vaizel / Kaisinel</td>
+                        <td class="py-3.5 px-6 text-slate-200">Israphel / Zikel / Triniel / Lumiel</td>
+                        <td class="py-3.5 px-6 text-right text-slate-500 text-xs">4 Pares</td>
+                    </tr>
+
+                    <!-- Ásia -->
+                    <tr class="hover:bg-slate-800/40 transition-colors">
+                        <td class="py-3.5 px-6 font-semibold text-slate-200">Ásia (Asia)</td>
+                        <td class="py-3.5 px-6 text-slate-400">Tóquio</td>
+                        <td class="py-3.5 px-6 text-slate-200">Siel</td>
+                        <td class="py-3.5 px-6 text-slate-200">Israphel</td>
+                        <td class="py-3.5 px-6 text-right text-slate-500 text-xs">1 Par</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- SEÇÃO 2: DATAMINE DO CLIENT GLOBAL v2.0.4 (MetaRoad) -->
+<section id="datamine-global" class="py-16 bg-dark-900/60 border-y border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-widest text-purple-400 flex items-center gap-1.5">
+                    <i class="fa-solid fa-code-compare"></i> Análise Aprofundada dos Arquivos de Jogo
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-fantasy font-bold text-white mt-1">Datamine do Client Global v2.0.4</h2>
+                <p class="text-slate-400 text-sm mt-1">
+                    O que muda em relação às versões de Taiwan (TW) e Coreia (KR) segundo a mineração de dados do client oficial.
+                </p>
+            </div>
+            
+            <!-- Badge de Créditos MetaRoad -->
+            <div class="shrink-0">
+                <a href="https://metaroad.gg/pt/aion2/news/datamine-do-client-global-de-aion-2-o-que-tem-na-build-de-lancamento" target="_blank" rel="noopener noreferrer" class="glass-panel px-4 py-2 rounded-xl border border-purple-500/40 hover:border-purple-400 text-xs text-slate-300 hover:text-white flex items-center gap-2 transition-all group">
+                    <div class="w-6 h-6 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-400">
+                        <i class="fa-solid fa-link"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] text-slate-400 block -mb-0.5">Fonte da Mineração:</span>
+                        <strong class="text-purple-300 group-hover:text-purple-200">MetaRoad · DarkPirate &rarr;</strong>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Grade de Revelações do Datamine -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            
+            <!-- Card 1: Nível 50 no Client -->
+            <div class="glass-panel p-6 rounded-2xl border border-slate-800 relative">
+                <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-4">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-2 font-fantasy">Conteúdo até o Nível 50</h4>
+                <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                    O client global traz missões de crescimento até o <strong>Level 50</strong> e o 6º tier de Conquista. O Level 45 é o ponto de partida do endgame onde destravam a Transcendência, o Santuário e o 5º tabuleiro de Daevanion. A liberação do teto do 45 ao 50 será ditada pelos servidores.
+                </p>
+                <span class="text-[11px] text-purple-400 font-semibold flex items-center gap-1">
+                    <i class="fa-solid fa-check"></i> Dados Confirmados no Client
+                </span>
+            </div>
+
+            <!-- Card 2: Novo Sistema de PvP via Skins -->
+            <div class="glass-panel p-6 rounded-2xl border border-slate-800 relative">
+                <div class="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 mb-4">
+                    <i class="fa-solid fa-shirt"></i>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-2 font-fantasy">Fim do Gear de PvP Tradicional</h4>
+                <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                    Diferente da versão TW (que tinha 247 itens com status de PvP), os antigos sets da loja do Abismo viraram <strong>Skins com Efeito de Posse Permanente</strong> (tiers Decanus e Centurion). Juntas, elas concedem até <strong>+8% de Amplificação de Dano JvJ</strong> e <strong>+14% de Tolerância JvJ</strong> fixos no personagem!
+                </p>
+                <span class="text-[11px] text-rose-400 font-semibold flex items-center gap-1">
+                    <i class="fa-solid fa-shield-virus"></i> Efeito no Guarda-Roupa (Armário)
+                </span>
+            </div>
+
+            <!-- Card 3: 5 Tabuleiros de Daevanion -->
+            <div class="glass-panel p-6 rounded-2xl border border-slate-800 relative">
+                <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-4">
+                    <i class="fa-solid fa-diagram-project"></i>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-2 font-fantasy">Tabuleiros de Daevanion</h4>
+                <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                    Confirmados 5 tabuleiros iniciais: <strong>Nezekan (12)</strong>, <strong>Zikel (20)</strong>, <strong>Vaizel (30)</strong>, <strong>Triniel (40)</strong> e <strong>Azphel (45)</strong>. O tabuleiro de Azphel usa um cristal exclusivo. <em>Atenção:</em> o tabuleiro de Ariel não possui nós ativos na build inicial, evite comprar cristais de Ariel na loja de Pesadelo.
+                </p>
+                <span class="text-[11px] text-cyan-400 font-semibold flex items-center gap-1">
+                    <i class="fa-solid fa-star"></i> Orçamento de 840 Pontos
+                </span>
+            </div>
+
+            <!-- Card 4: Masmorras e Nível de Item (IL) -->
+            <div class="glass-panel p-6 rounded-2xl border border-slate-800 relative">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-4">
+                    <i class="fa-solid fa-dungeon"></i>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-2 font-fantasy">Nível de Item (Item Level - IL)</h4>
+                <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                    As masmorras exigem <strong>Item Level (IL)</strong> real para liberar a entrada (e não o Poder de Combate da Legião). 
+                    Conquista Tier 1 pede 700 IL, Tier 2 pede 1.400 IL e Tier 3 pede 2.100 IL. Já a Transcendência avança em 1.600, 1.900, 2.200 e 2.500 IL.
+                </p>
+                <span class="text-[11px] text-amber-400 font-semibold flex items-center gap-1">
+                    <i class="fa-solid fa-gauge-high"></i> Requisito Rígido de Entrada
+                </span>
+            </div>
+
+            <!-- Card 5: Raide Santuário - Ludra -->
+            <div class="glass-panel p-6 rounded-2xl border border-slate-800 relative">
+                <div class="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400 mb-4">
+                    <i class="fa-solid fa-skull-crossbones"></i>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-2 font-fantasy">Santuário: Abyssal Forge (Ludra)</h4>
+                <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                    O ápice do PvE inicial: Raide para <strong>10 Jogadores</strong>, no <strong>Level 45</strong>, exigindo <strong>2.800 de Item Level</strong>. 
+                    O limite é de <strong>2 abates de chefe final por semana</strong> por personagem, com reset semanal toda quarta-feira.
+                </p>
+                <span class="text-[11px] text-red-400 font-semibold flex items-center gap-1">
+                    <i class="fa-solid fa-trophy"></i> Meta de Endgame das Semanas 1 e 2
+                </span>
+            </div>
+
+            <!-- Card 6: Balanceamento de Classes -->
+            <div class="glass-panel p-6 rounded-2xl border border-slate-800 relative">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-4">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-2 font-fantasy">Buffs de Habilidades</h4>
+                <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                    Em relação ao playtest da Steam, <strong>Templar</strong> e <strong>Assassin</strong> receberam reforços nos multiplicadores de dano. As habilidades de suporte <strong>Noble Armor</strong> (Templar) e <strong>Protective Ward / Bênção da Guarda</strong> (Chanter) tiveram o cooldown reduzido drasticamente de 5 min para 2 min.
+                </p>
+                <span class="text-[11px] text-emerald-400 font-semibold flex items-center gap-1">
+                    <i class="fa-solid fa-arrow-trend-up"></i> Melhor Rotação de Combate
+                </span>
+            </div>
+
+        </div>
+
+        <!-- Tabela Rápida de Resets Semanais Revelados -->
+        <div class="p-6 rounded-3xl glass-panel border border-slate-800">
+            <h4 class="text-base font-bold text-white font-fantasy mb-3 flex items-center gap-2">
+                <i class="fa-solid fa-clock-rotate-left text-cyan-400"></i> Cronograma de Resets Semanais no Global
+            </h4>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+                <div class="p-4 rounded-xl bg-dark-950/70 border border-slate-800">
+                    <span class="text-amber-400 font-bold block mb-1">Masmorra do Pesadelo</span>
+                    <strong class="text-white text-sm">Reset no Domingo</strong>
+                    <p class="text-slate-400 text-[11px] mt-1">14 tentativas acumuláveis por semana. Guarde para rodar com o maior IL possível.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-dark-950/70 border border-slate-800">
+                    <span class="text-cyan-400 font-bold block mb-1">Santuário (Ludra 10-man)</span>
+                    <strong class="text-white text-sm">Reset na Quarta-feira</strong>
+                    <p class="text-slate-400 text-[11px] mt-1">2 abates de chefe por personagem. Só consome a tentativa quando o chefe final é abatido.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-dark-950/70 border border-slate-800">
+                    <span class="text-purple-400 font-bold block mb-1">Lojas do Abismo & Medalhas</span>
+                    <strong class="text-white text-sm">Compras Semanais Limitadas</strong>
+                    <p class="text-slate-400 text-[11px] mt-1">10 Medalhas de Prata (10k AP cada). Preços em cadeia reiniciam a cada ciclo.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- SEÇÃO 3: ROTA DOS PRIMEIROS DIAS NO SERVIDOR SA (Roadmap do Madsin) -->
+<section id="roadmap-primeiros-dias" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-amber-400 flex items-center gap-1.5">
+                <i class="fa-solid fa-fire"></i> Guia Estratégico da Comunidade SA
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-fantasy font-bold text-white mt-1">
+                O Que Fazer nos Primeiros Dias de Lançamento
+            </h2>
+            <p class="text-slate-400 text-sm mt-1">
+                Passo a passo otimizado para rushar Level 45, gerenciar Odil Energy e atingir os 2.800 de IL para o Santuário.
+            </p>
+        </div>
+
+        <!-- Badge de Créditos Madsin -->
+        <div class="shrink-0">
+            <a href="https://docs.google.com/spreadsheets/d/15HcpCwvfw3AqOGvYSshCeoUzlfP9GCqnGF4e_tA_xOc/edit?gid=1852715617#gid=1852715617" target="_blank" rel="noopener noreferrer" class="glass-panel px-4 py-2 rounded-xl border border-amber-500/40 hover:border-amber-400 text-xs text-slate-300 hover:text-white flex items-center gap-2 transition-all group">
+                <div class="w-6 h-6 rounded-lg bg-amber-500/20 flex items-center justify-center text-amber-400">
+                    <i class="fa-solid fa-table"></i>
+                </div>
+                <div>
+                    <span class="text-[10px] text-slate-400 block -mb-0.5">Planilha Oficial da Comunidade:</span>
+                    <strong class="text-amber-300 group-hover:text-amber-200">Guia de Lançamento por Madsin &rarr;</strong>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- BOX DESTAQUE: A REGRA DE OURO DA ODIL ENERGY -->
+    <div class="p-6 sm:p-8 rounded-3xl glass-panel border border-amber-500/30 mb-10 bg-gradient-to-r from-amber-950/20 via-slate-900 to-dark-950 relative overflow-hidden">
+        <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 text-xl shrink-0">
+                <i class="fa-solid fa-bolt-lightning"></i>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-lg sm:text-xl font-bold font-fantasy text-white">
+                    A Lei Sagrada: Odil Energy é o Recurso Mais Crítico das Primeiras 2 Semanas!
+                </h3>
+                <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                    Em Aion 2, a <strong class="text-amber-300">Odil Energy</strong> limita o farm de conteúdo de alto nível. Cada ponto conta! 
+                    <strong>NUNCA gaste a energia do seu Main em estágios baixos (1★ ou 2★)</strong>. 
+                    Seus 3 Alts existem para rodar os estágios iniciais, gerar Kina e materiais de crafting, alimentando o progresso do seu Main sem gastar a energia dele. O Main só entra no conteúdo mais alto disponível!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TIMELINE DE ETAPAS DIA A DIA -->
+    <div class="space-y-6">
+        
+        <!-- ETAPA 1: DIA 1 -->
+        <div class="glass-panel p-6 sm:p-7 rounded-3xl border border-slate-800 relative">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-4 border-b border-slate-800 gap-2">
+                <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-xl bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center font-bold text-cyan-400 text-sm">
+                        01
+                    </span>
+                    <div>
+                        <h4 class="text-lg font-bold font-fantasy text-white">Dia 1: Criação de Personagens e Desbloqueio de Odil Energy</h4>
+                        <span class="text-xs text-slate-400">Meta: Main no Level 45 e Alts no Level 22</span>
+                    </div>
+                </div>
+                <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30 uppercase tracking-wider self-start sm:self-center">
+                    Prioridade Crítica
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-slate-300">
+                <div class="p-4 rounded-xl bg-dark-950/60 border border-slate-800/80">
+                    <strong class="text-cyan-300 block mb-1 text-sm font-fantasy">1. Criar 3 Alts + 1 Main</strong>
+                    <p class="text-slate-400 leading-relaxed">Você recebe 4 slots gratuitos. Crie os 3 alts imediatamente (planeje 7 no futuro). Comece jogando com o Main.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-dark-950/60 border border-slate-800/80">
+                    <strong class="text-cyan-300 block mb-1 text-sm font-fantasy">2. Rush Level 22 em Todos</strong>
+                    <p class="text-slate-400 leading-relaxed">O Level 22 desbloqueia o menu de <em>Expedition</em> e a geração de <em>Odil Energy</em>. Ao atingir o 22 em cada um, deslogue e passe para o próximo.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-dark-950/60 border border-slate-800/80">
+                    <strong class="text-cyan-300 block mb-1 text-sm font-fantasy">3. Main no Level 45</strong>
+                    <p class="text-slate-400 leading-relaxed">Rushar a Main Story até o Lv 45 para destravar as diárias (Duties), tickets de Nightmare (2/dia) e Feathers do Lower Abyss (+52 IL no Daevanion).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ETAPA 2: DIAS 2 E 3 -->
+        <div class="glass-panel p-6 sm:p-7 rounded-3xl border border-slate-800 relative">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-4 border-b border-slate-800 gap-2">
+                <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center font-bold text-amber-400 text-sm">
+                        02
+                    </span>
+                    <div>
+                        <h4 class="text-lg font-bold font-fantasy text-white">Dias 2 e 3: Exploração, Cintos/Amuletos Gold e Meta 1.500 IL</h4>
+                        <span class="text-xs text-slate-400">Meta: Alts no Level 45 e Base de Equipamento Consolidada</span>
+                    </div>
+                </div>
+                <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase tracking-wider self-start sm:self-center">
+                    Prioridade Alta
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-slate-300">
+                <div class="p-4 rounded-xl bg-dark-950/60 border border-slate-800/80">
+                    <strong class="text-amber-300 block mb-1 text-sm font-fantasy">1. Alts para o Level 45</strong>
+                    <p class="text-slate-400 leading-relaxed">Terminar o leveling dos 3 alts para o 45 assim que possível para que todos comecem a gerar ingressos de Pesadelo (Nightmare).</p>
+                </div>
+                <div class="p-4 rounded-xl bg-dark-950/60 border border-slate-800/80">
+                    <strong class="text-amber-300 block mb-1 text-sm font-fantasy">2. Exploração & Feathers no Main</strong>
+                    <p class="text-slate-400 leading-relaxed">Faça Sealed Dungeons (cristais e skill points) e Strongholds. <strong>Colete Feathers apenas no Main</strong>, pois os Monólitos são globais na conta do servidor!</p>
+                </div>
+                <div class="p-4 rounded-xl bg-dark-950/60 border border-slate-800/80">
+                    <strong class="text-amber-300 block mb-1 text-sm font-fantasy">3. Belt + Amulet para Gold</strong>
+                    <p class="text-slate-400 leading-relaxed">Materiais de exploração &rarr; Lv 10 &rarr; Substance Morph &rarr; Grade Gold baseline. Não aprimore além do básico ainda (muito caro).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ETAPA 3: ENDGAME PROGRESSION (1500 IL A 2800 IL) -->
+        <div class="glass-panel p-6 sm:p-7 rounded-3xl border border-slate-800 relative">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-4 border-b border-slate-800 gap-2">
+                <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-xl bg-purple-500/20 border border-purple-500/40 flex items-center justify-center font-bold text-purple-400 text-sm">
+                        03
+                    </span>
+                    <div>
+                        <h4 class="text-lg font-bold font-fantasy text-white">Escalada de Item Level (1.500 &rarr; 1.900 &rarr; 2.100 &rarr; 2.800 IL)</h4>
+                        <span class="text-xs text-slate-400">Rumo à entrada no Santuário (Abyssal Forge: Ludra)</span>
+                    </div>
+                </div>
+                <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider self-start sm:self-center">
+                    Endgame Loop
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs text-slate-300">
+                <div class="p-4 rounded-xl bg-dark-950/60 border border-slate-800/80">
+                    <strong class="text-purple-300 block mb-1 text-sm font-fantasy">1.500 IL: Vacron Pity</strong>
+                    <p class="text-slate-400 leading-relaxed">Abrir os 3 baús finais de Vacron com 120 de energia Odil para resgatar a <strong>peça de peito garantida pelo pity</strong>.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-dark-950/60 border border-slate-800/80">
+                    <strong class="text-purple-300 block mb-1 text-sm font-fantasy">1.900 IL: Transcendência</strong>
+                    <p class="text-slate-400 leading-relaxed">Entrar em Transcendence Stage 2. Garante cartas de Arcana verdes (+40 IL cada) e chance de cartas azuis e Cálices.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-dark-950/60 border border-slate-800/80">
+                    <strong class="text-purple-300 block mb-1 text-sm font-fantasy">2.100 IL: Newakum Gulag</strong>
+                    <p class="text-slate-400 leading-relaxed">Rodar 28 vezes (14 runs x 2 baús) para obter 2 tickets de pity e craftar a <em>Guard</em> (foco em Botas e Luvas soulbinds).</p>
+                </div>
+                <div class="p-4 rounded-xl bg-dark-950/60 border border-slate-800/80">
+                    <strong class="text-purple-300 block mb-1 text-sm font-fantasy">2.800 IL: Ludra Raide</strong>
+                    <p class="text-slate-400 leading-relaxed">Objetivo final das primeiras duas semanas: entrar no Santuário de 10 jogadores e coletar os equipamentos mais fortes de Atreia.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- DICAS DE OURO DO ROADMAP -->
+    <div class="mt-8 p-6 rounded-3xl glass-panel border border-slate-800 bg-slate-900/50">
+        <h4 class="text-sm font-bold text-white font-fantasy mb-3 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-lightbulb text-amber-400"></i> Dicas Essenciais de Min-Maxing da Planilha
+        </h4>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-slate-300">
+            <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-cyan-400 mt-0.5"></i>
+                <span><strong>Crafting Prioritário (Handicraft):</strong> Spamme crafts de nível 1 em quanto estiver AFK até Novice 50 &rarr; quest &rarr; Professional. Colares, brincos e anéis trazem o maior ganho de atributos iniciais.</span>
+            </li>
+            <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-cyan-400 mt-0.5"></i>
+                <span><strong>Feathers do Lower Abyss:</strong> Colete apenas no Main. Se a área de PvP estiver caótica no lançamento, vá de madrugada ou em horários de menor tráfego para garantir os +52 IL no tabuleiro.</span>
+            </li>
+            <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-cyan-400 mt-0.5"></i>
+                <span><strong>Regra do Pity (3 Baús):</strong> 3 baús de exploração garantem 1 peça de equipamento. Use estrategicamente em Vacron e Ferocious Horn para peças que não caíram no Conquest.</span>
+            </li>
+            <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-cyan-400 mt-0.5"></i>
+                <span><strong>Conteúdo Secundário no Fim da Semana:</strong> Faça Daily Dungeons, Ascension Trials e Pesadelo o mais tarde possível no ciclo semanal para rodar com o maior Item Level atingido.</span>
+            </li>
+        </ul>
+    </div>
+</section>
+{% endblock %}

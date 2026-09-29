@@ -251,6 +251,13 @@ def api_enhancement_simulate():
         'message': msg
     })
 
+# 10. Rota: Lançamento Global, Servidores SA & Datamine ( /lancamento, /servidores, /launch )
+@app.route('/lancamento')
+@app.route('/servidores')
+@app.route('/launch')
+def launch_hub():
+    return render_template('launch_hub.html')
+
 # Tratamento amigável de erro 404
 @app.errorhandler(404)
 def page_not_found(e):

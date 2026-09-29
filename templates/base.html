@@ -54,11 +54,15 @@
         <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 whitespace-nowrap">
             <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping mr-1"></span> GLOBAL LAUNCH
         </span>
-        <span class="whitespace-nowrap">Lançamento Oficial: <strong class="text-white">05 de Outubro de 2026 às 11:00 BRT</strong> (14:00 UTC)</span>
+        <span class="whitespace-nowrap">Lançamento Oficial: <strong class="text-white">05 de Outubro de 2026 às 10:00 BRT</strong></span>
         <span class="text-slate-500 hidden md:inline">·</span>
-        <span class="whitespace-nowrap">Acesso Antecipado: <strong class="text-amber-300">30 de Setembro de 2026</strong></span>
+        <span class="whitespace-nowrap">Acesso Antecipado: <strong class="text-amber-300">30 de Setembro às 10:00 BRT</strong></span>
         <span class="text-slate-500 hidden md:inline">·</span>
-        <span class="whitespace-nowrap">Level Cap Inicial: <strong class="text-cyan-400">Level 45</strong></span>
+        <span class="whitespace-nowrap">Servidores SA: <strong class="text-emerald-400">São Paulo (Siel / Israphel & Nezekan / Zikel)</strong></span>
+        <span class="text-slate-500 hidden md:inline">·</span>
+        <a href="{{ url_for('launch_hub') }}" class="inline-flex items-center gap-1 text-cyan-300 hover:text-cyan-200 underline font-bold whitespace-nowrap">
+            <i class="fa-solid fa-server text-[10px]"></i> Ver Servidores SA & Datamine &rarr;
+        </a>
     </div>
 
     <!-- Main Navigation Header -->
@@ -128,6 +132,10 @@
 
                     <a href="{{ url_for('gearing') }}" class="px-2.5 xl:px-3 py-2 rounded-lg text-xs xl:text-sm font-medium transition-colors inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 {% if request.path == '/gearing' %}text-cyan-400 bg-cyan-500/10 border border-cyan-500/20{% else %}text-slate-300 hover:text-white hover:bg-slate-800/60{% endif %}">
                         <i class="fa-solid fa-hammer text-xs text-yellow-400"></i> Equipamentos & Enhancement
+                    </a>
+
+                    <a href="{{ url_for('launch_hub') }}" class="px-2.5 xl:px-3 py-2 rounded-lg text-xs xl:text-sm font-semibold transition-colors inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 {% if request.path in ['/lancamento', '/servidores', '/launch'] %}text-emerald-300 bg-emerald-500/10 border border-emerald-500/20{% else %}text-slate-200 hover:text-white hover:bg-slate-800/60 border border-emerald-500/30 bg-emerald-950/20{% endif %}">
+                        <i class="fa-solid fa-rocket text-xs text-emerald-400 animate-pulse"></i> Lançamento & Servidores
                     </a>
 
                     <!-- Ferramentas Dropdown com Visual Destacado em Azul -->
@@ -284,11 +292,12 @@
                 <div>
                     <h4 class="text-white font-fantasy text-sm uppercase tracking-wider mb-4 border-l-2 border-amber-500 pl-2">Guias Principais</h4>
                     <ul class="space-y-2 text-xs">
-                        <li><a href="{{ url_for('beginner_guide') }}" class="hover:text-amber-400 transition-colors">Level Cap 45 & Roadmap</a></li>
+                        <li><a href="{{ url_for('launch_hub') }}" class="hover:text-emerald-400 text-emerald-300 font-semibold transition-colors flex items-center gap-1.5"><i class="fa-solid fa-rocket text-[10px]"></i> Lançamento & Servidores SA</a></li>
+                        <li><a href="{{ url_for('launch_hub') }}#datamine-global" class="hover:text-purple-400 text-purple-300 transition-colors">Datamine v2.0.4 (MetaRoad)</a></li>
+                        <li><a href="{{ url_for('launch_hub') }}#roadmap-primeiros-dias" class="hover:text-amber-400 text-amber-300 transition-colors">Roadmap Primeiros Dias (Madsin)</a></li>
+                        <li><a href="{{ url_for('beginner_guide') }}" class="hover:text-amber-400 transition-colors">Level Cap 45 & Início</a></li>
                         <li><a href="{{ url_for('beginner_guide') }}#leveling-priorities" class="hover:text-amber-400 transition-colors">Main Story vs Regional Quests</a></li>
                         <li><a href="{{ url_for('beginner_guide') }}#dungeons-strongholds" class="hover:text-amber-400 transition-colors">Sealed Dungeons & Strongholds</a></li>
-                        <li><a href="{{ url_for('beginner_guide') }}#free-flight" class="hover:text-amber-400 transition-colors">Voo Livre & Exploração Tridimensional</a></li>
-                        <li><a href="{{ url_for('beginner_guide') }}#taming" class="hover:text-amber-400 transition-colors">Captura de Pets & Montarias</a></li>
                     </ul>
                 </div>
 
@@ -311,7 +320,7 @@
             <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
                 <div>
                     <p>&copy; 2026 Aion 2 Guides Portal. Conteúdo e guias desenvolvidos para a comunidade global de Aion 2.</p>
-                    <p class="text-[11px] text-slate-500 mt-1">Créditos comunitários: <a href="https://daevanion-planner.info/" target="_blank" rel="noopener noreferrer" class="text-amber-400/80 hover:text-amber-300 underline">Daevanion Planner</a> · <a href="https://thiagosoaresferreira.github.io/lotus-tracker/" target="_blank" rel="noopener noreferrer" class="text-amber-400/80 hover:text-amber-300 underline">Lótus Tracker (Thiago Soares Ferreira)</a> · <a href="https://questlog.gg/aion-2/en/map" target="_blank" rel="noopener noreferrer" class="text-amber-400/80 hover:text-amber-300 underline">QuestLog.gg</a>.</p>
+                    <p class="text-[11px] text-slate-500 mt-1">Créditos comunitários: <a href="https://metaroad.gg/pt/aion2/news/datamine-do-client-global-de-aion-2-o-que-tem-na-build-de-lancamento" target="_blank" rel="noopener noreferrer" class="text-purple-400/80 hover:text-purple-300 underline">MetaRoad (Datamine por DarkPirate)</a> · <a href="https://docs.google.com/spreadsheets/d/15HcpCwvfw3AqOGvYSshCeoUzlfP9GCqnGF4e_tA_xOc/edit?gid=1852715617#gid=1852715617" target="_blank" rel="noopener noreferrer" class="text-amber-400/80 hover:text-amber-300 underline">Guia de Primeiros Dias (Madsin)</a> · <a href="https://daevanion-planner.info/" target="_blank" rel="noopener noreferrer" class="text-amber-400/80 hover:text-amber-300 underline">Daevanion Planner</a> · <a href="https://thiagosoaresferreira.github.io/lotus-tracker/" target="_blank" rel="noopener noreferrer" class="text-amber-400/80 hover:text-amber-300 underline">Lótus Tracker (Thiago Soares Ferreira)</a> · <a href="https://questlog.gg/aion-2/en/map" target="_blank" rel="noopener noreferrer" class="text-amber-400/80 hover:text-amber-300 underline">QuestLog.gg</a>.</p>
                 </div>
                 <div class="flex items-center gap-4 text-[11px]">
                     <span class="text-slate-400">Aion 2 é marca registrada da NCSoft. Este projeto é um portal de fãs e guias para jogadores.</span>

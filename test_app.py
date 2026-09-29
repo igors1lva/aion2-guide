@@ -170,6 +170,19 @@ class Aion2WebTestCase(unittest.TestCase):
             self.assertIn(b'QuestLog.gg', response.data)
             self.assertIn(b'Atreia', response.data)
 
+    def test_launch_hub_page(self):
+        for route in ['/lancamento', '/servidores', '/launch']:
+            response = self.app.get(route)
+            self.assertEqual(response.status_code, 200)
+            self.assertIn('Lançamento'.encode('utf-8'), response.data)
+            self.assertIn(b'Siel', response.data)
+            self.assertIn(b'Israphel', response.data)
+            self.assertIn('São Paulo'.encode('utf-8'), response.data)
+            self.assertIn(b'MetaRoad', response.data)
+            self.assertIn(b'DarkPirate', response.data)
+            self.assertIn(b'Madsin', response.data)
+            self.assertIn(b'Odil Energy', response.data)
+
     def test_404_page(self):
 
         response = self.app.get('/rota-inexistente')
