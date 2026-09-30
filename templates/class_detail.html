@@ -200,136 +200,217 @@
         </div>
 
         <!-- Box: Prioridade Daevanion Boards -->
-        <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-slate-800 space-y-4">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
-                    <i class="fa-solid fa-star"></i>
+        <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-amber-500/30 space-y-5">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold font-fantasy text-white">Daevanion Boards: Prioridades</h3>
+                        <span class="text-xs text-amber-400 font-semibold">Alocação de Pontos Estelares · Boards 1 a 6 (Lv 12 ao 45)</span>
+                    </div>
                 </div>
-                <div>
-                    <h3 class="text-xl font-bold font-fantasy text-white">Daevanion Boards: Prioridades</h3>
-                    <span class="text-xs text-slate-400">Alocação de Pontos Estelares</span>
-                </div>
+                <span class="px-2.5 py-1 rounded-lg bg-amber-500/10 text-amber-300 border border-amber-500/20 text-[11px] font-bold">
+                    6 Tabuleiros
+                </span>
             </div>
 
             <p class="text-xs text-slate-300 leading-relaxed">
-                A Daevanion Board expande seus nós estelares com status brutos e bônus únicos. Para o {{ cls.name }}, recomendamos a seguinte distribuição:
+                O sistema de Daevanion Boards substitui árvores rígidas por constelações de nós. Gaste pontos conquistados em Green Quests e Sealed Dungeons para atingir os marcos de habilidades (Níveis 8, 12 e 16) e ativar as Keystones lendárias.
             </p>
 
-            <div class="p-4 rounded-2xl bg-dark-950/90 border border-amber-500/30 text-xs text-slate-200 leading-relaxed">
+            <!-- Legenda dos 4 Tipos de Nós -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px]">
+                <div class="p-2.5 rounded-xl bg-dark-950/80 border border-amber-500/40 text-amber-300">
+                    <div class="font-bold flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-400"></span> Laranja (4 Pts)</div>
+                    <span class="text-[10px] text-slate-400 block mt-0.5">Keystones & -20% CD</span>
+                </div>
+                <div class="p-2.5 rounded-xl bg-dark-950/80 border border-cyan-500/40 text-cyan-300">
+                    <div class="font-bold flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-cyan-400"></span> Azul (3 Pts)</div>
+                    <span class="text-[10px] text-slate-400 block mt-0.5">Skills Ativas (Lv 16)</span>
+                </div>
+                <div class="p-2.5 rounded-xl bg-dark-950/80 border border-emerald-500/40 text-emerald-300">
+                    <div class="font-bold flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> Verde (2 Pts)</div>
+                    <span class="text-[10px] text-slate-400 block mt-0.5">Passivas & Maestrias</span>
+                </div>
+                <div class="p-2.5 rounded-xl bg-dark-950/80 border border-slate-700 text-slate-300">
+                    <div class="font-bold flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-slate-300"></span> Cinza (1 Pt)</div>
+                    <span class="text-[10px] text-slate-400 block mt-0.5">Status Brutos</span>
+                </div>
+            </div>
+
+            <!-- Recomendação da Classe -->
+            <div class="p-4 rounded-2xl bg-dark-950/95 border border-amber-500/30 text-xs text-slate-200 leading-relaxed whitespace-pre-line font-sans">
                 {{ cls.daevanion_priority }}
             </div>
 
-            <a href="{{ url_for('progression') }}#daevanion-boards" class="text-xs text-amber-400 hover:text-amber-300 font-bold inline-flex items-center gap-1">
-                Aprenda a Estrutura dos Nós de Daevanion &rarr;
-            </a>
+            <div class="flex items-center justify-between pt-1">
+                <a href="{{ url_for('progression') }}#daevanion-boards" class="text-xs text-amber-400 hover:text-amber-300 font-bold inline-flex items-center gap-1">
+                    Aprenda a Estrutura Completa de Daevanion &rarr;
+                </a>
+                <a href="{{ url_for('planner') }}" class="text-xs text-cyan-400 hover:text-cyan-300 font-bold inline-flex items-center gap-1">
+                    <i class="fa-solid fa-calculator"></i> Abrir Simulador de Builds &rarr;
+                </a>
+            </div>
         </div>
 
     </div>
 
-    <!-- SEÇÃO: MACROS IN-GAME DA COMUNIDADE (BOSS & AUTO-MODE) -->
+    <!-- SEÇÃO: ABILITY-MACRO OFICIAL IN-GAME (NCSoft) -->
     <section id="macros-section" class="glass-panel rounded-3xl p-6 sm:p-8 border border-slate-800 space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
             <div>
-                <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">Sistema In-Game de Rotações & Automação Legítima</span>
+                <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 flex items-center gap-1.5">
+                    <i class="fa-solid fa-gamepad"></i> Sistema Oficial In-Game da NCSoft
+                </span>
                 <h2 class="text-2xl font-fantasy font-bold text-white mt-0.5 flex items-center gap-2.5">
-                    <i class="fa-solid fa-code text-cyan-400"></i> Macros da Comunidade: {{ cls.name }}
+                    <i class="fa-solid fa-bolt-lightning text-cyan-400"></i> Ability-Macro Oficial: {{ cls.name }}
                 </h2>
                 <p class="text-xs text-slate-400 mt-1">
-                    Scripts prontos em formato <span class="text-white font-mono font-bold">.txt</span> para Boss encounters, "Auto-Mode" de missões e sequências defensivas. Copie e cole na janela de macros do jogo (atalho <kbd class="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-cyan-300 font-mono text-[11px]">U</kbd>).
+                    O sistema de macros do Aion 2 é <strong class="text-white">integrado nativamente ao cliente</strong> (Menu K &rarr; Ability-Macro). Permite configurar sequências de prioridade com <strong class="text-emerald-300">10ms de delay</strong> e cancelamento de animação com entrelaçamento de auto-ataques (<em class="text-cyan-300">weaving</em>).
                 </p>
             </div>
 
             <div class="flex items-center gap-2">
-                <span class="px-3 py-1.5 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-semibold flex items-center gap-1.5">
-                    <i class="fa-solid fa-shield-halved text-emerald-400"></i> 100% Permitido In-Game
+                <span class="px-3 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-semibold flex items-center gap-1.5">
+                    <i class="fa-solid fa-shield-halved text-emerald-400"></i> 100% Suportado pelo Jogo
                 </span>
             </div>
         </div>
 
-        <!-- Box Educativo: Como Funciona o Sistema de Macros no Aion 2 -->
-        <div class="p-4 sm:p-5 rounded-2xl bg-dark-950/90 border border-slate-800 space-y-3 text-xs">
-            <div class="font-bold text-white flex items-center gap-2 text-sm font-fantasy">
-                <i class="fa-solid fa-circle-question text-cyan-400"></i>
-                <span>Como Funciona o Sistema de Macros no Aion 2?</span>
+        <!-- Box Educativo: Como Funciona o Ability-Macro Oficial no Aion 2 -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-dark-950/90 border border-slate-800 space-y-4 text-xs">
+            <div class="font-bold text-white flex items-center justify-between text-sm font-fantasy">
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-circle-question text-cyan-400"></i>
+                    Como Configurar o Ability-Macro no Jogo (Passo a Passo Oficial)
+                </span>
+                <span class="text-[11px] font-sans text-amber-400 font-semibold">Delay Recomendado: 10 ms</span>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-slate-300">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-3 text-slate-300">
                 <div class="p-3 rounded-xl bg-dark-900/80 border border-slate-800/80 space-y-1">
                     <div class="font-bold text-cyan-300 flex items-center gap-1.5">
-                        <i class="fa-solid fa-keyboard text-xs"></i> 1. Como Cadastrar no Jogo
+                        <i class="fa-solid fa-keyboard text-xs"></i> 1. Vincular a Tecla
                     </div>
                     <p class="text-[11px] text-slate-400 leading-relaxed">
-                        Abra o menu ou pressione a tecla <strong class="text-white font-mono">U</strong> para abrir a Janela de Macros. Clique em <em>"Novo Macro"</em>, cole o script copiado, escolha um ícone e arraste para a barra de habilidades.
+                        Vá em <strong class="text-white">Settings &rarr; Key Settings &rarr; General &rarr; Gameplay &rarr; Ability-Macro</strong> e defina uma tecla rápida (ex: Botão Lateral do Mouse).
                     </p>
                 </div>
 
                 <div class="p-3 rounded-xl bg-dark-900/80 border border-slate-800/80 space-y-1">
                     <div class="font-bold text-emerald-300 flex items-center gap-1.5">
-                        <i class="fa-solid fa-wand-magic-sparkles text-xs"></i> 2. "Auto-Mode" para Missões
+                        <i class="fa-solid fa-layer-group text-xs"></i> 2. Montar os Slots
                     </div>
                     <p class="text-[11px] text-slate-400 leading-relaxed">
-                        O Aion 2 não possui bot AFK (proibido pela NCSoft). O "Auto-Mode" da comunidade consiste em ativar nas opções de combate <em>"Auto Target on Skill Use"</em> + <em>"Closest Target"</em> e usar o comando <code class="text-white font-mono">/AutomaticSelection</code>.
+                        Pressione <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-cyan-300 font-mono text-[10px]">K</kbd> (Skills) e clique no botão <strong class="text-white">Ability-Macro</strong> no topo. Arraste as habilidades para os slots na ordem indicada abaixo.
                     </p>
                 </div>
 
                 <div class="p-3 rounded-xl bg-dark-900/80 border border-slate-800/80 space-y-1">
                     <div class="font-bold text-amber-300 flex items-center gap-1.5">
-                        <i class="fa-solid fa-stopwatch text-xs"></i> 3. Ajuste de Latência (/Delay)
+                        <i class="fa-solid fa-stopwatch text-xs"></i> 3. Ajustar o Delay (10 ms)
                     </div>
                     <p class="text-[11px] text-slate-400 leading-relaxed">
-                        O comando <code class="text-white font-mono">/Delay [segundos]</code> compensa o tempo de animação e o Global Cooldown (GCD). Se seu ping for superior a 80ms, aumente os delays em <strong>+0.1s</strong> ou <strong>+0.2s</strong>.
+                        Configure o atraso de cada slot para <strong class="text-white font-mono">10 ms</strong>. Isso assegura o cancelamento perfeito da animação sem travar o loop de habilidades.
                     </p>
+                </div>
+
+                <div class="p-3 rounded-xl bg-dark-900/80 border border-slate-800/80 space-y-1">
+                    <div class="font-bold text-purple-300 flex items-center gap-1.5">
+                        <i class="fa-solid fa-hand-pointer text-xs"></i> 4. Segurar em Combate
+                    </div>
+                    <p class="text-[11px] text-slate-400 leading-relaxed">
+                        Em combate, basta <strong class="text-white">segurar a tecla do macro</strong>. O jogo executa as skills fora de recarga e entrelaça ataques básicos (<em class="text-cyan-300">weaving</em>). Solte para parar.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Aviso de Presets & Termos de Serviço -->
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-2 border-t border-slate-800/80 text-[11px]">
+                <div class="text-slate-400 flex items-center gap-2">
+                    <i class="fa-solid fa-arrows-rotate text-cyan-400"></i>
+                    <span><strong>3 Presets Natos:</strong> Alterne rapidamente entre os perfis usando <code class="text-white font-mono bg-slate-800 px-1 py-0.5 rounded">Alt + 4</code>, <code class="text-white font-mono bg-slate-800 px-1 py-0.5 rounded">Alt + 5</code> e <code class="text-white font-mono bg-slate-800 px-1 py-0.5 rounded">Alt + 6</code>.</span>
+                </div>
+                <div class="text-amber-400 flex items-center gap-1.5 font-medium">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>Macros externos via software (Razer, Logitech, AHK) violam o ToS da NCSoft! Use apenas a ferramenta oficial in-game.</span>
                 </div>
             </div>
         </div>
 
-        <!-- Grade de Cards de Macros (.txt) -->
+        <!-- Grade de Cards de Presets Oficiais do Ability-Macro -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {% for m in cls.macros %}
             <div class="p-5 rounded-2xl bg-dark-950/80 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between space-y-4">
                 <div class="space-y-3">
-                    <!-- Cabeçalho do Card -->
+                    <!-- Cabeçalho do Preset -->
                     <div class="flex items-start justify-between gap-2">
-                        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border {{ m.badge_color }}">
-                            {{ m.category_label }}
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-[11px] font-bold px-2 py-0.5 rounded-full border {{ m.badge_color }}">
+                                {{ m.preset_name }} · {{ m.shortcut }}
+                            </span>
+                        </div>
+                        <span class="text-[10px] text-emerald-400 font-mono font-bold bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                            {{ m.delay_ms }} ms Delay
                         </span>
-                        <span class="text-[10px] text-slate-500 font-mono">{{ m.filename }}</span>
                     </div>
 
                     <h3 class="text-sm font-bold text-white font-fantasy leading-snug">
                         {{ m.title }}
                     </h3>
 
-                    <p class="text-xs text-slate-400 leading-relaxed min-h-[48px]">
+                    <p class="text-xs text-slate-400 leading-relaxed min-h-[44px]">
                         {{ m.description }}
                     </p>
 
-                    <!-- Bloco de Código .txt do Macro -->
-                    <div class="relative rounded-xl bg-black/90 border border-slate-800 p-3 overflow-hidden group">
-                        <div class="flex items-center justify-between text-[10px] text-slate-500 font-mono border-b border-slate-800/80 pb-1.5 mb-2">
-                            <span class="flex items-center gap-1 text-slate-400">
-                                <i class="fa-regular fa-file-lines text-cyan-400"></i> formato .txt
-                            </span>
-                            <span>{{ m.commands_raw.splitlines()|length }} comandos</span>
+                    <!-- Sequência Visual dos Slots de Habilidades -->
+                    <div class="p-3 rounded-xl bg-dark-900 border border-slate-800 space-y-2">
+                        <div class="text-[10px] text-slate-400 uppercase font-bold tracking-wider flex items-center justify-between">
+                            <span>Ordem de Slots no Jogo:</span>
+                            <span class="text-cyan-400 font-mono">{{ m.skill_slots|length }} Habilidades</span>
                         </div>
-                        <pre class="font-mono text-xs text-emerald-300 leading-relaxed overflow-x-auto select-all"><code id="{{ m.id }}">{{ m.commands_raw }}</code></pre>
+                        <div class="space-y-1.5">
+                            {% for skill in m.skill_slots %}
+                            <div class="flex items-center gap-2 text-xs bg-slate-950/80 px-2.5 py-1.5 rounded-lg border border-slate-800/80">
+                                <span class="w-4 h-4 rounded-full bg-cyan-500/20 text-cyan-300 font-mono text-[10px] font-bold flex items-center justify-center shrink-0">
+                                    {{ loop.index }}
+                                </span>
+                                <span class="font-bold text-white">{{ skill }}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Weaving & Dica de Combate -->
+                    <div class="p-2.5 rounded-xl bg-cyan-950/30 border border-cyan-500/20 text-[11px] text-cyan-200 leading-relaxed flex items-start gap-2">
+                        <i class="fa-solid fa-bolt text-cyan-400 mt-0.5 shrink-0"></i>
+                        <span>{{ m.weaving_info }}</span>
+                    </div>
+
+                    <!-- Alerta de Exclusão -->
+                    <div class="p-2.5 rounded-xl bg-amber-950/20 border border-amber-500/20 text-[11px] text-amber-200 leading-relaxed flex items-start gap-2">
+                        <i class="fa-solid fa-circle-exclamation text-amber-400 mt-0.5 shrink-0"></i>
+                        <span>{{ m.exclusions }}</span>
                     </div>
                 </div>
 
-                <!-- Botões de Ação: Copiar e Baixar .txt -->
-                <div class="pt-2 border-t border-slate-800/80 flex items-center gap-2">
+                <!-- Botões de Ação: Copiar Configuração e Baixar Perfil -->
+                <div class="pt-3 border-t border-slate-800/80 flex items-center gap-2">
+                    <pre class="hidden"><code id="{{ m.id }}">{{ m.commands_raw }}</code></pre>
                     <button 
                         type="button" 
                         onclick="copyMacroText('{{ m.id }}', this)" 
                         class="flex-1 py-2 px-3 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 hover:text-white border border-cyan-500/30 text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm active:scale-95">
                         <i class="fa-regular fa-copy"></i>
-                        <span>Copiar Macro (.txt)</span>
+                        <span>Copiar Instrução</span>
                     </button>
 
                     <a 
                         href="/api/classes/{{ cls.slug }}/macros/{{ m.id }}/download" 
                         download="{{ m.filename }}"
-                        title="Baixar arquivo {{ m.filename }}"
+                        title="Baixar guia de configuração {{ m.filename }}"
                         class="py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-cyan-300 border border-slate-800 hover:border-slate-700 text-xs font-bold transition-all flex items-center justify-center gap-1">
                         <i class="fa-solid fa-download"></i>
                     </a>

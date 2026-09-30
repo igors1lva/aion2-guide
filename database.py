@@ -256,7 +256,11 @@ def seed_data(cursor):
                 {"name": "Second Wind", "type": "Survival", "desc": "Cura instantânea de emergência de 35% do HP máximo e aumento de resistência a Stun."},
                 {"name": "Tendonslice", "type": "Debuff", "desc": "Reduz drasticamente a velocidade de movimento do adversário em 50%."}
             ], ensure_ascii=False),
-            "daevanion_priority": "Priorizar nós Laranja de aumento de dano em alvos derrubados (Knockdown Amplification). Nos nós Verdes, focar em redução de cooldown de habilidades de investida e nos nós Brancos acumular Physical Attack e Physical Critical Hit.",
+            "daevanion_priority": """**Foco dos 6 Tabuleiros (Lv 12 a 45):**
+1. **Nós Laranja / Keystones (4 Pontos - Prioridade Máxima):** Corra até os nós lendários que reduzem a recarga de *Severe Precision Cut* em 18% e concedem +25% de dano bônus em alvos caídos (Knockdown Amplification), e a keystone de *Whirlwind Strike* que expande o raio para 9 metros aplicando sangramento cumulativo.
+2. **Nós Azuis / Habilidades Ativas (3 Pontos):** Eleve *Armor Murder* até o marco do nível 12 (amplia a quebra de defesa para 45%), *Ferocious Strike* (aumenta chance de derrubada para 40%) e *Draining Blow* (aumenta roubo de vida para 45%).
+3. **Nós Verdes / Passivas (2 Pontos):** Invista em *Greatsword Mastery* (+8% Attack Power) e mitigação contra atordoamentos.
+4. **Nós Cinzas / Atributos (1 Ponto):** Conecte os galhos escolhendo sempre o caminho de Physical Attack, Physical Critical Hit e Accuracy.""",
             "skill_rotation": "1. Iniciar com Dauntless Charge para encurtar a distância -> 2. Aplicar Armor Murder para quebrar defesas -> 3. Usar Ferocious Strike gerando chance de Knockdown -> 4. Ao derrubar o alvo, desferir Severe Precision Cut seguido de Draining Blow para dano massivo e autocura.",
             "image_placeholder": "gladiator.svg"
         },
@@ -300,7 +304,11 @@ def seed_data(cursor):
                 {"name": "Break Power", "type": "Debuff", "desc": "Ataque que silencia e impede o uso de itens consumíveis de cura por 4 segundos."},
                 {"name": "Bodyguard", "type": "Party Protect", "desc": "Salva o Cleric do time de focar e ser abatido por assassinos furtivos."}
             ], ensure_ascii=False),
-            "daevanion_priority": "Focar em nós Laranja de ampliação de Threat/Aggro e redução do dano de ataques em área. Nos nós Verdes, priorizar aumento de taxa de Shield Block e nos nós Brancos maximizar HP total e Physical Defense.",
+            "daevanion_priority": """**Foco dos 6 Tabuleiros (Lv 12 a 45):**
+1. **Nós Laranja / Keystones (4 Pontos - Prioridade Máxima):** Priorize a keystone de *Iron Skin* (reduz o tempo de recarga da imunidade em 20 segundos) e o nó supremo de *Doom Lure* (a corrente etérea atrai alvos secundários e gera 50% mais Threat/Aggro inicial).
+2. **Nós Azuis / Habilidades Ativas (3 Pontos):** Foque em *Incite Rage* até o marco de nível 12 (garante travamento definitivo de Aggro em chefes), *Shield Counter* (estende atordoamento em 1s) e *Taunt Strike*.
+3. **Nós Verdes / Passivas (2 Pontos):** Desbloqueie *Shield Block Mastery* (+12% de chance de bloqueio) e *Plate Armor Fortitude* (-10% de dano físico recebido).
+4. **Nós Cinzas / Atributos (1 Ponto):** Alinhe a árvore priorizando Max HP, Physical Defense e Block Rate.""",
             "skill_rotation": "1. Avançar com Shield Charge para engajar -> 2. Disparar Incite Rage para consolidar o Aggro inicial -> 3. Manter a rotação de Shield Counter e Taunt Strike -> 4. Acionar Iron Skin antes de golpes especiais ou fases de pico de dano do chefe.",
             "image_placeholder": "templar.svg"
         },
@@ -344,7 +352,11 @@ def seed_data(cursor):
                 {"name": "Spelldodge", "type": "Survival", "desc": "Anula ataques fatais de Sorcerers e Clerics."},
                 {"name": "Rune Burst", "type": "Burst CC", "desc": "Detonação para selar o abate do alvo antes que receba curas da party."}
             ], ensure_ascii=False),
-            "daevanion_priority": "Nós Laranja focados em Backstab Critical Damage e recarga rápida do Shadowstep ao abater inimigos. Nós Verdes em Attack Speed e chance de evasão, e nós Brancos em Physical Critical Hit e Physical Attack.",
+            "daevanion_priority": """**Foco dos 6 Tabuleiros (Lv 12 a 45):**
+1. **Nós Laranja / Keystones (4 Pontos - Prioridade Máxima):** Rush prioritário para a keystone de *Rune Burst* (aumenta dano crítico da detonação em 30% e atordoa em área com 5 runas) e a keystone de *Shadowstep* (reduz o cooldown em 50% se o alvo for abatido após o teleporte).
+2. **Nós Azuis / Habilidades Ativas (3 Pontos):** Aprimore *Rune Carve* até o marco do nível 12 (acumula 2 runas por acerto em vez de 1), *Quickening Gloom* e *Ambush* (aumenta dano crítico pelas costas).
+3. **Nós Verdes / Passivas (2 Pontos):** Aloque em *Dual Dagger Mastery* (+10% dano na mão inábil) e *Evasion Reflexes* (concede contra-ataque veloz após esquiva).
+4. **Nós Cinzas / Atributos (1 Ponto):** Maximize o trajeto por nós de Physical Critical Hit, Physical Attack e Evasion.""",
             "skill_rotation": "1. Ativar Stealth -> 2. Posicionar-se e disparar Ambush pelas costas -> 3. Executar Rune Carve para empilhar runas -> 4. Usar Shadowstep caso o inimigo tente desengajar -> 5. Finalizar com Rune Burst para o abate.",
             "image_placeholder": "assassin.svg"
         },
@@ -388,7 +400,11 @@ def seed_data(cursor):
                 {"name": "Retreating Slash", "type": "Evasion / Gap Creator", "desc": "Salta 10m para trás atordoando qualquer um que estivesse à frente."},
                 {"name": "Gale Arrow", "type": "Knockback", "desc": "Empurra inimigos que se aproximem demais do seu perímetro."}
             ], ensure_ascii=False),
-            "daevanion_priority": "Nós Laranja que aumentam a distância máxima de ataque em 4 metros e dano à distância. Nós Verdes em Movement Speed e cooldown de traps, e nós Brancos em Physical Critical Hit e Accuracy.",
+            "daevanion_priority": """**Foco dos 6 Tabuleiros (Lv 12 a 45):**
+1. **Nós Laranja / Keystones (4 Pontos - Prioridade Máxima):** Conquiste a keystone de *Sharpshooter Aim* (+4 metros no alcance máximo de tiro e 15% de perfuração de armadura) e a keystone de *Gale Arrow* (terceira flecha causa 50% de dano bônus com repelência).
+2. **Nós Azuis / Habilidades Ativas (3 Pontos):** Evolua *Spiral Arrow* até o marco de nível 12 (perfura 40% da defesa do chefe), *Arrow Deluge* (expande a área da chuva contínua) e *Snare Arrow* (amplia lentidão para 65%).
+3. **Nós Verdes / Passivas (2 Pontos):** Desbloqueie *Bow Mastery* (+10% Attack Power com Arco Longo) e *Fleetfoot Movement* (+8% de velocidade contínua em combate).
+4. **Nós Cinzas / Atributos (1 Ponto):** Conecte os tabuleiros através de Physical Attack, Physical Critical Hit e Accuracy.""",
             "skill_rotation": "1. Posicionar armadilhas no caminho de recuo -> 2. Iniciar combate com Silence Arrow ou Snare -> 3. Disparar Spiral Arrow para quebrar defesas -> 4. Entrar em Mau Form para metralhar Gale Arrow enquanto se mantém em movimento lateral.",
             "image_placeholder": "ranger.svg"
         },
@@ -432,7 +448,11 @@ def seed_data(cursor):
                 {"name": "Frost Barrier", "type": "Reflect / Defense", "desc": "Congela o feiticeiro em um casulo protetor, refletindo feitiços e curando MP."},
                 {"name": "Flame Spray", "type": "Executioner", "desc": "Finaliza alvos rapidamente após acordá-los do controle de grupo."}
             ], ensure_ascii=False),
-            "daevanion_priority": "Nós Laranja que reduzem o Cast Time global e garantem penetração mágica (Magic Suppression Ignore). Nós Verdes em regeneração de MP e nós Brancos focados 100% em Magic Boost e Magical Critical Hit.",
+            "daevanion_priority": """**Foco dos 6 Tabuleiros (Lv 12 a 45):**
+1. **Nós Laranja / Keystones (4 Pontos - Prioridade Máxima):** Corra para a keystone de *Glacial Shard* (aumenta o multiplicador de crítico em 35% e reduz o tempo de canalização em 0.5s) e a keystone de *Boon of Quickness* (aumenta a duração da aceleração mágica em 5 segundos).
+2. **Nós Azuis / Habilidades Ativas (3 Pontos):** Suba *Flame Spray* até o marco de nível 12 (dano massivo de fogo atingindo até 2 alvos adjacentes), *Ice Chain* (amplia dano de follow-up com Freezing Wind) e *Stone Skin* (aumenta a barreira para 4000 de absorção).
+3. **Nós Verdes / Passivas (2 Pontos):** Priorize *Arcane Flow* (-15% no custo de Mana de feitiços pesados) e *Elemental Mastery* (+8% de amplificação elemental global).
+4. **Nós Cinzas / Atributos (1 Ponto):** Escolha 100% dos caminhos por Magic Boost (M.Atk), Magical Critical Hit e Magic Accuracy.""",
             "skill_rotation": "1. Ativar Stone Skin antes do combate -> 2. Acionar Boon of Quickness -> 3. Controlar ameaças secundárias com Curse of Tree -> 4. Disparar Glacial Shard no alvo prioritário -> 5. Finalizar com Flame Spray e magias de gelo instantâneas.",
             "image_placeholder": "sorcerer.svg"
         },
@@ -476,7 +496,11 @@ def seed_data(cursor):
                 {"name": "Spirit Substitution", "type": "Survival", "desc": "Transfere 100% do dano recebido pelo Elementalist diretamente para seu espírito."},
                 {"name": "Erosion Curse", "type": "DoT Drain", "desc": "Drena mana e vida do alvo simultaneamente ao longo do tempo."}
             ], ensure_ascii=False),
-            "daevanion_priority": "Nós Laranja que ampliam a duração de feitiços de Fear e fortalecem o escalonamento dos espíritos elementais. Nós Verdes em aceleração de DoTs e nós Brancos em Magic Boost e Magical Accuracy.",
+            "daevanion_priority": """**Foco dos 6 Tabuleiros (Lv 12 a 45):**
+1. **Nós Laranja / Keystones (4 Pontos - Prioridade Máxima):** Desbloqueie a keystone de *Curse Cloud* (faz com que o DoT da nuvem ácida dê ticks 20% mais rápidos reduzindo o ataque do chefe) e a keystone de *Spirit Substitution* (cura 15% da vida do pet elemental ao absorver impacto).
+2. **Nós Azuis / Habilidades Ativas (3 Pontos):** Eleve *Ignite Aether* até o marco de nível 12 (remove até 4 buffs mágicos causando dano explosivo por efeito expurgado), *Spirit Burn* (comanda pet para queima contínua) e *Erosion Curse*.
+3. **Nós Verdes / Passivas (2 Pontos):** Invista em *Spirit Affinity* (+15% de HP e defesas para os espíritos invocados) e *Curse Amplification* (+12% de dano acumulado em feitiços de DoT).
+4. **Nós Cinzas / Atributos (1 Ponto):** Conecte os nós por Magic Accuracy, Magic Boost e Max HP.""",
             "skill_rotation": "1. Invocar espírito de acordo com a situação (Fire para dano, Earth para tank) -> 2. Aplicar maldições e DoTs contínuos -> 3. Usar Ignite Aether para purgar proteções do alvo -> 4. Lançar Fear Shriek para desestruturar a formação inimiga.",
             "image_placeholder": "elementalist.svg"
         },
@@ -520,7 +544,11 @@ def seed_data(cursor):
                 {"name": "Ripple of Purification", "type": "Group Cleanse", "desc": "Neutraliza táticas de envenenamento e silenciamento de Rangers e Assassins."},
                 {"name": "Hand of Reincarnation", "type": "Self Resurrection", "desc": "Permite ressuscitar imediatamente no local com 50% de HP durante conflitos."}
             ], ensure_ascii=False),
-            "daevanion_priority": "Nós Laranja focados em Healing Power Amplification e redução do tempo de recarga de Flash of Recovery. Nós Verdes em Cast Time Reduction e consumo de mana, e nós Brancos em Max HP e Magic Resist.",
+            "daevanion_priority": """**Foco dos 6 Tabuleiros (Lv 12 a 45):**
+1. **Nós Laranja / Keystones (4 Pontos - Prioridade Máxima):** Rush direto para a keystone de *Flash of Recovery* (reduz recarga em 25% e concede escudo de 15% do valor curado) e a keystone de *Splendor of Recovery* (concede +20% de cura crítica instantânea para todo o grupo no marco Lv 16).
+2. **Nós Azuis / Habilidades Ativas (3 Pontos):** Aprimore *Healing Light* até o marco de nível 12 (cura veloz com custo de Mana reduzido em 20%), *Splendor of Rebirth* (amplia barreira de absorção) e *Ripple of Purification*.
+3. **Nós Verdes / Passivas (2 Pontos):** Desbloqueie *Divine Benevolence* (+15% de eficácia em curas ativas) e *Sacred Shield Mastery* (+10% de resistência mágica e bloqueio com escudo).
+4. **Nós Cinzas / Atributos (1 Ponto):** Conecte por Healing Power, Max HP e Magic Defense.""",
             "skill_rotation": "1. Manter Benevolence ativo -> 2. Aplicar bênçãos de regeneração contínua no Tank -> 3. Usar Ripple of Purification no primeiro segundo em que o grupo sofrer debuffs -> 4. Guardar Flash of Recovery e Splendor of Recovery para picos mecânicos.",
             "image_placeholder": "cleric.svg"
         },
@@ -564,7 +592,11 @@ def seed_data(cursor):
                 {"name": "Protective Ward", "type": "Emergency Shield", "desc": "Gera um escudo impenetrável de emergência contra ataques de surpresa."},
                 {"name": "Recovery Spell", "type": "HoT (Heal over Time)", "desc": "Cura contínua aplicada em si mesmo para aguentar trocas diretas de dano."}
             ], ensure_ascii=False),
-            "daevanion_priority": "Nós Laranja que ampliam a potência dos Mantras em 25% e o alcance para 30m. Nós Verdes em redução de tempo de recarga de buffs e nós Brancos em Physical Critical Hit, Attack e Max HP.",
+            "daevanion_priority": """**Foco dos 6 Tabuleiros (Lv 12 a 45):**
+1. **Nós Laranja / Keystones (4 Pontos - Prioridade Máxima):** Obtenha a keystone lendária de *Victory Mantra* (aumenta o bônus de Physical Attack para aliados em 30% e expande o raio para 30m) e a keystone de *Word of Wind* (estende a duração da aceleração da party para 40 segundos com menor tempo de recarga geral).
+2. **Nós Azuis / Habilidades Ativas (3 Pontos):** Evolua *Soul Strike* até o marco do nível 12 (estende o tempo de atordoamento), *Mountain Fall* (aumenta o dano de impacto e reduz a defesa do chefe) e *Healing Conduit* (cone de cura regenera 25% mais vida).
+3. **Nós Verdes / Passivas (2 Pontos):** Aloque em *Staff Martial Mastery* (+10% de dano com báculo e chance elevada de Stumble) e *Mantra Harmony* (reduz o custo de mana das auras).
+4. **Nós Cinzas / Atributos (1 Ponto):** Conecte através de Physical Attack, Physical Critical Hit e Max HP.""",
             "skill_rotation": "1. Ativar Victory Mantra, Hit Mantra e Celerity Mantra para a equipe -> 2. Utilizar Word of Wind na fase de dano máximo do chefe -> 3. Aplicar combos de Staff para derrubar o alvo com Mountain Fall -> 4. Fornecer curas e escudos quando o Cleric estiver ocupado.",
             "image_placeholder": "chanter.svg"
         }

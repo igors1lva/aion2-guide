@@ -25,6 +25,8 @@ class Aion2WebTestCase(unittest.TestCase):
         self.assertIn(b'Regional Quests', response.data)
         self.assertIn(b'Sealed Dungeons', response.data)
         self.assertIn(b'Strongholds', response.data)
+        self.assertIn(b'Lithograph Book', response.data)
+        self.assertIn(b'Ability-Macro', response.data)
 
     def test_classes_directory(self):
         response = self.app.get('/classes')
@@ -89,10 +91,10 @@ class Aion2WebTestCase(unittest.TestCase):
         for slug in classes:
             response = self.app.get(f'/classes/{slug}')
             self.assertEqual(response.status_code, 200)
-            self.assertIn('Macros da Comunidade'.encode('utf-8'), response.data)
-            self.assertIn(b'/Skill', response.data)
-            self.assertIn(b'/Delay', response.data)
-            self.assertIn('.txt'.encode('utf-8'), response.data)
+            self.assertIn('Ability-Macro Oficial'.encode('utf-8'), response.data)
+            self.assertIn(b'Preset 1', response.data)
+            self.assertIn(b'Delay', response.data)
+            self.assertIn('weaving'.encode('utf-8'), response.data)
 
     def test_class_macros_api_and_download(self):
         # 1. API JSON de macros
@@ -102,14 +104,17 @@ class Aion2WebTestCase(unittest.TestCase):
         self.assertEqual(json_data['slug'], 'gladiator')
         self.assertTrue(len(json_data['macros']) >= 3)
         self.assertEqual(json_data['macros'][0]['id'], 'macro-gladiator-boss')
-        self.assertIn('/Skill', json_data['macros'][0]['commands_raw'])
+        self.assertIn('Armor Murder', json_data['macros'][0]['skill_slots'])
+        self.assertEqual(json_data['macros'][0]['delay_ms'], 10)
+        self.assertIn('OFFICIAL IN-GAME ABILITY-MACRO', json_data['macros'][0]['commands_raw'])
 
-        # 2. Download do arquivo .txt
+        # 2. Download do arquivo de instruções do macro
         dl_resp = self.app.get('/api/classes/gladiator/macros/macro-gladiator-boss/download')
         self.assertEqual(dl_resp.status_code, 200)
         self.assertIn('text/plain', dl_resp.headers.get('Content-Type', ''))
         self.assertIn('attachment', dl_resp.headers.get('Content-Disposition', ''))
-        self.assertIn(b'/Skill Armor Murder', dl_resp.data)
+        self.assertIn(b'Armor Murder', dl_resp.data)
+        self.assertIn(b'10 ms', dl_resp.data)
 
     def test_progression_page(self):
         response = self.app.get('/progression')
