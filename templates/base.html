@@ -49,19 +49,19 @@
 </head>
 <body class="bg-dark-950 text-slate-200 flex flex-col min-h-screen selection:bg-cyan-500 selection:text-black">
 
-    <!-- Top Announcement Bar -->
-    <div class="bg-gradient-to-r from-cyan-950/90 via-slate-900 to-amber-950/90 border-b border-slate-800/80 py-1.5 px-4 text-xs text-center flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-slate-300">
-        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 whitespace-nowrap">
-            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping mr-1"></span> GLOBAL LAUNCH
+    <!-- Top Announcement Bar (v2.5 Live Global) -->
+    <div class="bg-gradient-to-r from-emerald-950/90 via-slate-900 to-cyan-950/90 border-b border-emerald-500/20 py-1.5 px-4 text-xs text-center flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-slate-300">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 whitespace-nowrap">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse mr-1.5"></span> SERVIDORES ONLINE
         </span>
-        <span class="whitespace-nowrap">Lançamento Oficial: <strong class="text-white">05 de Outubro de 2026 às 10:00 BRT</strong></span>
+        <span class="whitespace-nowrap">Status Global: <strong class="text-white">Temporada 1 Oficial Ativa (Level Cap 45)</strong></span>
         <span class="text-slate-500 hidden md:inline">·</span>
-        <span class="whitespace-nowrap">Acesso Antecipado: <strong class="text-emerald-400 font-bold"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block mr-0.5"></span>(Aberto)</strong> <span class="text-slate-300">de 30/09 a 05/10</span></span>
+        <span class="whitespace-nowrap">Servidores SA em São Paulo: <strong class="text-emerald-400 font-bold">Siel / Israphel & Nezekan / Zikel</strong> (15-25ms)</span>
         <span class="text-slate-500 hidden md:inline">·</span>
-        <span class="whitespace-nowrap">Servidores SA: <strong class="text-emerald-400">São Paulo (Siel / Israphel & Nezekan / Zikel)</strong></span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">v2.5 Live Edition</span>
         <span class="text-slate-500 hidden md:inline">·</span>
         <a href="{{ url_for('launch_hub') }}" class="inline-flex items-center gap-1 text-cyan-300 hover:text-cyan-200 underline font-bold whitespace-nowrap">
-            <i class="fa-solid fa-server text-[10px]"></i> Ver Servidores SA & Datamine &rarr;
+            <i class="fa-solid fa-server text-[10px]"></i> Hub de Servidores & Endgame &rarr;
         </a>
     </div>
 
@@ -322,8 +322,12 @@
             <!-- Rodapé Inferior & Termos -->
             <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
                 <div>
-                    <p>&copy; 2026 Aion 2 Guides Portal. Conteúdo e guias desenvolvidos para a comunidade global de Aion 2.</p>
-                    <p class="text-[11px] text-slate-500 mt-1">Créditos comunitários: <a href="https://metaroad.gg/pt/aion2/news/datamine-do-client-global-de-aion-2-o-que-tem-na-build-de-lancamento" target="_blank" rel="noopener noreferrer" class="text-purple-400/80 hover:text-purple-300 underline">MetaRoad (Datamine por DarkPirate)</a> · <a href="https://docs.google.com/spreadsheets/d/15HcpCwvfw3AqOGvYSshCeoUzlfP9GCqnGF4e_tA_xOc/edit?gid=1852715617#gid=1852715617" target="_blank" rel="noopener noreferrer" class="text-amber-400/80 hover:text-amber-300 underline">Guia de Primeiros Dias (Madsin)</a> · <a href="https://daevanion-planner.info/" target="_blank" rel="noopener noreferrer" class="text-amber-400/80 hover:text-amber-300 underline">Daevanion Planner</a> · <a href="https://thiagosoaresferreira.github.io/lotus-tracker/" target="_blank" rel="noopener noreferrer" class="text-amber-400/80 hover:text-amber-300 underline">Lótus Tracker (Thiago Soares Ferreira)</a> · <a href="https://questlog.gg/aion-2/en/map" target="_blank" rel="noopener noreferrer" class="text-amber-400/80 hover:text-amber-300 underline">QuestLog.gg</a>.</p>
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-white font-semibold">&copy; 2026 Aion 2 Guides Portal</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">v2.5 Post-Launch Global Edition</span>
+                    </div>
+                    <p class="text-xs text-slate-400">Conteúdo e guias atualizados para a Temporada 1 Oficial (Level Cap 45) e servidores SA.</p>
+                    <p class="text-[11px] text-slate-500 mt-1">Créditos comunitários: <a href="https://metaroad.gg/pt/aion2/news/datamine-do-client-global-de-aion-2-o-que-tem-na-build-de-lancamento" target="_blank" rel="noopener noreferrer" class="text-purple-400/80 hover:text-purple-300 underline">MetaRoad (Datamine por DarkPirate)</a> · <a href="https://docs.google.com/spreadsheets/d/15HcpCwvfw3AqOGvYSshCeoUzlfP9GCqnGF4e_tA_xOc/edit?gid=1852715617#gid=1852715617" target="_blank" rel="noopener noreferrer" class="text-amber-400/80 hover:text-amber-300 underline">Guia de Primeiros Dias (Madsin)</a> · <a href="https://daevanion-planner.info/" target="_blank" rel="noopener noreferrer" class="text-amber-400/80 hover:text-amber-300 underline">Daevanion Planner</a> · <a href="https://thiagosoaresferreira.github.io/lotus-tracker/" target="_blank" rel="noopener noreferrer" class="text-amber-400/80 hover:text-amber-300 underline">Lótus Tracker (Thiago Soares Ferreira)</a> · <a href="https://questlog.gg/aion-2/en/map" target="_blank" rel="noopener noreferrer" class="text-cyan-400/80 hover:text-cyan-300 underline">QuestLog.gg</a>.</p>
                 </div>
                 <div class="flex items-center gap-4 text-[11px]">
                     <span class="text-slate-400">Aion 2 é marca registrada da NCSoft. Este projeto é um portal de fãs e guias para jogadores.</span>

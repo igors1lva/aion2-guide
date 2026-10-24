@@ -17,6 +17,8 @@ class Aion2WebTestCase(unittest.TestCase):
         self.assertIn(b'Level 45', response.data)
         self.assertIn(b'Gladiator', response.data)
         self.assertIn('Eventos Ativos In-Game'.encode('utf-8'), response.data)
+        self.assertIn('Temporada 1 Oficial Ao Vivo'.encode('utf-8'), response.data)
+        self.assertIn('Ascensão de Atreia'.encode('utf-8'), response.data)
 
     def test_beginner_guide(self):
         response = self.app.get('/beginner-guide')
@@ -144,7 +146,11 @@ class Aion2WebTestCase(unittest.TestCase):
         response = self.app.get('/ferramentas')
         self.assertEqual(response.status_code, 200)
         self.assertIn('Ferramentas'.encode('utf-8'), response.data)
-        self.assertIn('Tarefas'.encode('utf-8'), response.data)
+        self.assertIn('Calculadora & Otimizador de Item Level'.encode('utf-8'), response.data)
+        self.assertIn('Odil Energy'.encode('utf-8'), response.data)
+        self.assertIn('Lithograph Book'.encode('utf-8'), response.data)
+        self.assertIn('Gerador de Ability-Macro In-Game'.encode('utf-8'), response.data)
+        self.assertIn('DPS Meter'.encode('utf-8'), response.data)
 
         response_alias = self.app.get('/tools')
         self.assertEqual(response_alias.status_code, 200)

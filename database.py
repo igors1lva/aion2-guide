@@ -731,8 +731,49 @@ def seed_data(cursor):
         ''', (s["key"], s["title"], s["subtitle"], s["description"], s["details_json"]))
 
 def seed_events(cursor):
-    """Eventos ativos in-game (vazio durante o período pré-lançamento global)."""
-    events_data = []
+    """Eventos ativos in-game da Temporada 1 Oficial de Aion 2."""
+    events_data = [
+        {
+            "title": "Ascensão de Atreia: Temporada 1 ao Vivo",
+            "category": "Leveling & Temporada",
+            "status": "Ativo Agora",
+            "badge_color": "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
+            "period": "Temporada 1 Oficial",
+            "summary": "Atingir os marcos de Level 20, 35 e o Cap de Level 45 concede pacotes lendários de suprimentos e materiais essenciais para o início do endgame.",
+            "rewards": "Enhancement Stones x50, Daevanion Crystals x30, 2.500.000 Kina e Baú de Stigma Raro",
+            "is_active": 1
+        },
+        {
+            "title": "Fendas Espaço-Temporais & Invasão do Abismo",
+            "category": "PvPvE & Facções",
+            "status": "Ativo Diariamente",
+            "badge_color": "bg-purple-500/20 text-purple-300 border-purple-500/30",
+            "period": "Diário nos Servidores SA",
+            "summary": "Fendas dimensionais abrem entre os territórios de Elyos e Asmodians com bônus de Odil Energy e dobro de medalhas de honra nos servidores de São Paulo.",
+            "rewards": "Medalhas de Honra em dobro, Abyss Feathers (+52 IL) e Gemas de Manastone",
+            "is_active": 1
+        },
+        {
+            "title": "Festival das Masmorras Seladas & Explorações",
+            "category": "Dungeons & Pity",
+            "status": "Ativo Agora",
+            "badge_color": "bg-cyan-500/20 text-cyan-300 border-cyan-500/30",
+            "period": "Temporada de Lançamento",
+            "summary": "Entradas bônus nas Sealed Dungeons e aceleração na obtenção de pity tickets de armadura Guard em Vacron Exploration e Newakum Gulag.",
+            "rewards": "Pity Tickets de Armadura Guard, Materiais de Crafting para Handicraft e Chaves Extras",
+            "is_active": 1
+        },
+        {
+            "title": "Guerra Territorial de Fortalezas (Strongholds)",
+            "category": "Guerra de Guildas",
+            "status": "Finais de Semana",
+            "badge_color": "bg-amber-500/20 text-amber-300 border-amber-500/30",
+            "period": "Sábados e Domingos às 20:00 BRT",
+            "summary": "Disputa territorial épica de fortalezas nos servidores pareados Siel/Israphel e Nezekan/Zikel valendo o controle da região e buffs de facção.",
+            "rewards": "Buff de 20% de EXP de Servidor, Kina para a Guilda e Títulos de Campeão",
+            "is_active": 1
+        }
+    ]
 
     for ev in events_data:
         cursor.execute('''

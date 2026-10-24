@@ -12,12 +12,14 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="text-center max-w-3xl mx-auto space-y-6">
             
-            <!-- Badge de Lançamento -->
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/90 border border-slate-700/80 text-xs font-semibold text-slate-300 shadow-xl">
-                <span class="flex h-2 w-2 rounded-full bg-cyan-400"></span>
-                <span>Focado na Versão Global | Atualizado pela Comunidade</span>
-                <span class="text-slate-500">|</span>
-                <span class="text-amber-400 font-bold">Cap Inicial: Level 45</span>
+            <!-- Badge de Servidores Ao Vivo & Temporada 1 -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/95 border border-emerald-500/40 text-xs font-semibold text-slate-200 shadow-xl shadow-emerald-500/10">
+                <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span class="text-emerald-300 font-bold">Temporada 1 Oficial Ao Vivo</span>
+                <span class="text-slate-600">|</span>
+                <span class="text-slate-300">Servidores SA Online</span>
+                <span class="text-slate-600">|</span>
+                <span class="text-cyan-400 font-bold">Cap Level 45</span>
             </div>
 
             <!-- Título Principal -->
@@ -33,17 +35,57 @@
                 explore os segredos de <span class="game-term">Atreia</span> e domine masmorras e conflitos de facção.
             </p>
 
-            <!-- Banner Destaque: Lançamento & Servidores SA -->
+            <!-- Banner Destaque: Servidores SA & Novas Ferramentas -->
             <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
                 <a href="{{ url_for('launch_hub') }}" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-bold text-xs sm:text-sm shadow-xl shadow-emerald-500/20 transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
-                    <i class="fa-solid fa-rocket"></i> Servidores SA & Hub de Lançamento
+                    <i class="fa-solid fa-server"></i> Servidores SA & Status Ao Vivo
+                </a>
+                <a href="{{ url_for('tools') }}" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-sky-700 hover:from-cyan-500 hover:to-sky-600 text-white font-bold text-xs sm:text-sm shadow-lg shadow-cyan-600/20 transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
+                    <i class="fa-solid fa-screwdriver-wrench"></i> Central de Ferramentas & Calculadoras
                 </a>
                 <a href="{{ url_for('launch_hub') }}#datamine-global" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-microchip text-purple-400"></i> Datamine v2.0.4 (MetaRoad)
+                    <i class="fa-solid fa-microchip text-purple-400"></i> Datamine & Meta
                 </a>
-                <a href="{{ url_for('launch_hub') }}#roadmap-primeiros-dias" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-amber-300 border border-amber-500/30 font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-route text-amber-400"></i> Rota dos Primeiros Dias (Madsin)
-                </a>
+            </div>
+
+            <!-- Quick Server & Community Stats Bar -->
+            <div class="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto text-left">
+                <div class="glass-panel p-3 rounded-xl border border-slate-800/80 bg-slate-900/60 flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+                        <i class="fa-solid fa-signal text-sm"></i>
+                    </div>
+                    <div>
+                        <div class="text-[10px] text-slate-400 uppercase font-semibold">Ping SA (SP)</div>
+                        <div class="text-xs font-bold text-emerald-300">15 - 25 ms</div>
+                    </div>
+                </div>
+                <div class="glass-panel p-3 rounded-xl border border-slate-800/80 bg-slate-900/60 flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
+                        <i class="fa-solid fa-shield-halved text-sm"></i>
+                    </div>
+                    <div>
+                        <div class="text-[10px] text-slate-400 uppercase font-semibold">Classes Ativas</div>
+                        <div class="text-xs font-bold text-cyan-300">8 Classes com Builds</div>
+                    </div>
+                </div>
+                <div class="glass-panel p-3 rounded-xl border border-slate-800/80 bg-slate-900/60 flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400 shrink-0">
+                        <i class="fa-solid fa-trophy text-sm"></i>
+                    </div>
+                    <div>
+                        <div class="text-[10px] text-slate-400 uppercase font-semibold">Level Cap</div>
+                        <div class="text-xs font-bold text-purple-300">Cap 45 Endgame</div>
+                    </div>
+                </div>
+                <div class="glass-panel p-3 rounded-xl border border-slate-800/80 bg-slate-900/60 flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+                        <i class="fa-solid fa-scale-balanced text-sm"></i>
+                    </div>
+                    <div>
+                        <div class="text-[10px] text-slate-400 uppercase font-semibold">Pity Guard</div>
+                        <div class="text-xs font-bold text-amber-300">100% Anti-RNG</div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -205,7 +247,7 @@
         </div>
         <div class="text-xs text-slate-400 flex items-center gap-2">
             <span class="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-slate-300">
-                <i class="fa-solid fa-clock text-amber-400 mr-1"></i> Status: Pré-Lançamento Global
+                <i class="fa-solid fa-circle-check text-emerald-400 mr-1"></i> Status: Temporada 1 Ativa
             </span>
         </div>
     </div>
@@ -253,9 +295,9 @@
             <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-2xl mx-auto mb-4">
                 <i class="fa-solid fa-calendar-xmark"></i>
             </div>
-            <h3 class="text-lg font-bold text-white font-fantasy mb-2">Nenhum Evento Ativo no Momento</h3>
+            <h3 class="text-lg font-bold text-white font-fantasy mb-2">Próxima Rotação de Eventos</h3>
             <p class="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
-                Como a versão global de Aion 2 ainda não foi lançada oficialmente, não existem eventos ativos em andamento. O calendário, campanhas de inauguração e bônus de EXP serão adicionados assim que os servidores forem oficialmente abertos!
+                Novos eventos sazonais e bônus de servidores são atualizados semanalmente após as manutenções de terça-feira da NCSoft. Acompanhe os avisos no jogo e no nosso hub comunitário.
             </p>
         </div>
         {% endfor %}
